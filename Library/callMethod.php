@@ -1,12 +1,14 @@
 <?php
 require_once 'inc/autoload.php';
 
+$data = json_decode($_POST['data']);
+
 use Library\Core\NameGenerator;
 
-if ( isset( $_POST['className'] ) )
+if ( isset( $data->className ) )
 {
-	$className = $_POST['className'];
-	$methodName = $_POST['methodName'];
+	$className = $data->className;
+	$methodName = $data->methodName;
 
 	switch($className)
 	{

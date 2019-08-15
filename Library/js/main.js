@@ -5,28 +5,30 @@ var main =
 		console.log(msg);
 	},
 
-	ajax: function()
+	generateName: function()
 	{
 		$('#characterName').click(function()
 		{
-			$.ajax({
-				url: 'LIbrary/callMethod.php',
+			_s.ajax({
 				type: 'POST',
+				url: 'Library/callMethod.php',
 				data: {
 					className: 'NameGenerator',
 					methodName: 'setup',
 				},
-				success: function( result )
+				callBack: function( result )
 				{
 					$('#characterNameLabel').html( result );
-				}
-			} );
+				} 
+			});
+			//sapphire.ajax('POST', 'Library/callMethod.php', 'setup');
 		});
+		
 	}
 };
 
 jQuery(function($)
 {
-	main.ajax();
+	main.generateName();
 });
 
