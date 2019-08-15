@@ -65,16 +65,26 @@ class Humanoid
 	protected $flaws;
 	protected $featuresAndTraits;
 
-	public function __construct(){}
+	public function __construct()
+	{
+
+	}
 
 	public function setup()
 	{
 
 	}
 
-	protected function createCharacterName()
+	public function createCharacterName()
 	{
 		$name = new NameGenerator();
-		$this->characterName = $name->setup();
+		$characterName = $this->characterName = $name->getName();
+
+		self::render($characterName);
+	}
+
+	protected static function render($msg)
+	{
+		echo $msg;
 	}
 }

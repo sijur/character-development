@@ -24,10 +24,7 @@ class NameGenerator
 		$this->getDiceRolls();
 	}
 
-	public function setup()
-	{
-		$this->getName();
-	}
+	public function setup() {}
 
 	private function getDiceRolls()
 	{
@@ -41,11 +38,11 @@ class NameGenerator
 		return rand(1, 20);
 	}
 
-	protected function getName()
+	public function getName()
 	{
 		$this->getNameParts();
 
-		echo $this->part1 . $this->part2 . $this->part3;
+		return $this->part1 . $this->part2 . $this->part3;
 	}
 
 	private function getNameParts()
@@ -57,7 +54,8 @@ class NameGenerator
 
 	private function getFirstPart()
 	{
-		switch ($this->roll1) {
+		switch ($this->roll1) 
+		{
 			case 5:
 				return 'A';
 			case 6:
@@ -189,5 +187,8 @@ class NameGenerator
 		}
 	}
 
-
+	protected static function render($msg)
+	{
+		echo $msg;
+	}
 }

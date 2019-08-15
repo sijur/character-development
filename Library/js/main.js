@@ -1,10 +1,5 @@
 var main =
 {
-	writeIt: function(msg)
-	{
-		console.log(msg);
-	},
-
 	generateName: function()
 	{
 		$('#characterName').click(function()
@@ -13,17 +8,15 @@ var main =
 				type: 'POST',
 				url: 'Library/callMethod.php',
 				data: {
-					className: 'NameGenerator',
-					methodName: 'setup',
+					className: 'Humanoid',
+					methodName: 'createCharacterName',
 				},
 				callBack: function( result )
 				{
 					$('#characterNameLabel').html( result );
 				} 
 			});
-			//sapphire.ajax('POST', 'Library/callMethod.php', 'setup');
-		});
-		
+		});		
 	}
 };
 

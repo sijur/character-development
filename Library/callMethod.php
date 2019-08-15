@@ -3,7 +3,7 @@ require_once 'inc/autoload.php';
 
 $data = json_decode($_POST['data']);
 
-use Library\Core\NameGenerator;
+use Library\Humanoid;
 
 if ( isset( $data->className ) )
 {
@@ -12,12 +12,12 @@ if ( isset( $data->className ) )
 
 	switch($className)
 	{
-		case 'NameGenerator':
-			$class = new NameGenerator();
+		case 'Humanoid':
+			$class = new Humanoid();
 			switch($methodName)
 			{
-				case 'setup':
-					$class->setup();
+				case 'createCharacterName':
+					$class->createCharacterName();
 					break;
 			}
 			break;
