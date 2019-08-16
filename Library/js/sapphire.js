@@ -211,13 +211,18 @@
             var xhr = new XMLHttpRequest();
             xhr.open(prop.type, prop.url, 'true');
 
+            xhr.onerror = function()
+            {
+                console.log( 'ERROR' );
+            };
+
             xhr.onload = function()
             {
                 if (this.status === 200)
                 {
                     prop.callBack(this.response);
                 }
-            }
+            };
 
             xhr.send(data);
         }

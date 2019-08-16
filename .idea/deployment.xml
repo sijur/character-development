@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData">
+  <component name="PublishConfigData" uploadOnCheckin="e8113c24-e46b-4705-8c31-6cd4f5884cd9">
     <serverData>
       <paths name="Sapphire Flames">
         <serverdata>
@@ -10,5 +10,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myUploadOnCheckinName" value="Sapphire Flames" />
   </component>
 </project>

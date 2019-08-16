@@ -20,6 +20,7 @@ body {
     bottom: 0;
     vertical-align: baseline;
     font-size: 100%;
+    font-family: 'Playfair Display', serif;
 }
 
 h1 {
@@ -52,13 +53,19 @@ h1.pageTitle {
 }
 
 .mainLabel {
+
+}
+
+.mainInput,
+.mainLabel {
     border: 1px black solid;
     height: 40px;
-    line-height: 40px;
     width: 250px;
     position: relative;
     display: inline-table;
     margin-left: 20px;
     padding: 0 20px;
     text-transform: uppercase;
+    float: left;
+    font: normal 17px/40px 'Playfair Display', serif;
 }

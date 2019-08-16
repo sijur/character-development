@@ -2,7 +2,7 @@
 
 namespace Library\Core;
 
-
+use Library\Core\CharacterSettings;
 
 class NameGenerator
 {
@@ -42,7 +42,18 @@ class NameGenerator
 	{
 		$this->getNameParts();
 
-		return $this->part1 . $this->part2 . $this->part3;
+		$setting = new CharacterSettings();
+		$setting->setSetting('characterName', $this->part1 . $this->part2 . $this->part3);
+
+		self::render( $setting->getSetting( 'characterName' ) );
+	}
+
+	public function saveName($value)
+	{
+		$setting = new CharacterSettings();
+		$setting->setSetting( 'characterName', $value);
+
+		self::render( $setting->getSetting( 'characterName' ) );
 	}
 
 	private function getNameParts()
