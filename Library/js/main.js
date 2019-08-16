@@ -38,6 +38,12 @@ var main =
 				}
 			});
 		});
+
+		$('#clearLink').on('click', function(evt)
+		{
+			evt.preventDefault();
+			$('#characterNameInput').val('');
+		});
 	}
 };
 

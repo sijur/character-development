@@ -209,7 +209,7 @@
             data.append('data', JSON.stringify(prop.data));
 
             var xhr = new XMLHttpRequest();
-            xhr.open(prop.type, prop.url, 'true');
+            xhr.open(prop.type, prop.url, true);
 
             xhr.onerror = function()
             {
@@ -218,6 +218,7 @@
 
             xhr.onload = function()
             {
+                console.log(this);
                 if (this.status === 200)
                 {
                     prop.callBack(this.response);

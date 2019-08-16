@@ -28,7 +28,24 @@ class HTMLBuilder
 		self::render( "<input type='$type' class='$class' id='$id' />" );
 	}
 
-	protected static function render($msg)
+	public function a( $href, $id, $class, $text, $target = '_blank' )
+	{
+		self::render( "<a href='$href' id='$id' class='$class' target='$target'>$text</a>" );
+	}
+
+	public function selector( $name, $class, $id, $options )
+	{
+		$msg = "<select name='$name' class='$class' id='$id'>";
+		foreach ( $options as $o )
+		{
+			$msg .= "<option value='" . strtolower( $o ) . "'>$o</option>";
+		}
+		$msg .= "</select>";
+
+		self::render( $msg );
+	}
+
+	protected static function render( $msg )
 	{
 		echo $msg;
 	}

@@ -9,23 +9,24 @@
 	<?php
 		require_once 'Library/inc/autoload.php';
 		use Library\Core\HTMLBuilder\PageBuilder;
-		use Library\Core\CharacterSettings;
 	?>
 
 	<link rel="stylesheet" href="css/main.css">
-	<link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
 	<div class="mainContainer">
 		<?php
-		$siteBuilder = new PageBuilder();
-		$siteBuilder->pageTitle( 'Character Development' );
+		$pageBuilder = new PageBuilder();
+		$pageBuilder->pageTitle( 'Character Development' );
 
-//		$siteBuilder->nameCreator();
+//		$pageBuilder->nameCreator();
+		$pageBuilder->raceSelector();
 		?>
 
 	</div>
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			crossorigin="anonymous" defer></script>
 	<script src="Library/js/sapphire.js" defer></script>
 	<script src="Library/js/main.js" defer></script>
 </body>
