@@ -38,7 +38,7 @@ class HTMLBuilder
 		$msg = "<select name='$name' class='$class' id='$id'>";
 		foreach ( $options as $o )
 		{
-			$msg .= "<option value='" . strtolower( $o ) . "'>$o</option>";
+			$msg .= "<option value='" . $o . "'>$o</option>";
 		}
 		$msg .= "</select>";
 

@@ -2,9 +2,9 @@ var main =
 {
 	generateName: function()
 	{
-		$('#characterName').click(function()
+		$( '#characterName' ).on( 'click', function()
 		{
-			_s.ajax({
+			_s.ajax( {
 				type: 'POST',
 				url: 'Library/callMethod.php',
 				data: {
@@ -14,14 +14,14 @@ var main =
 				callBack: function( result )
 				{
 					// $('#characterNameLabel').html( result );
-					$('#characterNameInput').val( result );
+					$( '#characterNameInput' ).val( result );
 				} 
-			});
-		});
+			} );
+		} );
 
-		$('#characterNameInput').on('blur', function()
+		$( '#characterNameInput' ).on( 'blur', function()
 		{
-			_s.ajax({
+			_s.ajax( {
 				type: 'POST',
 				url: 'Library/callMethod.php',
 				data: {
@@ -36,19 +36,45 @@ var main =
 						console.log( result );
 					}
 				}
-			});
-		});
+			} );
+		} );
 
-		$('#clearLink').on('click', function(evt)
+		$( '#clearLink' ).on( 'click', function( evt )
 		{
 			evt.preventDefault();
-			$('#characterNameInput').val('');
-		});
+			$( '#characterNameInput' ).val( '' );
+		} );
+	},
+
+	chooseRace: function()
+	{
+		$( '#raceSelectorBtn' ).on( 'click', function()
+		{
+			_s.ajax( {
+				type: 'POST',
+				url: 'Library/callMethod.php',
+				data: {
+					className: 'RaceSelector',
+					methodName: 'saveRace',
+					value: $("select[name='raceTypes']").val()
+				},
+				callBack: function( result )
+				{
+					if ( result !== '' )
+					{
+						console.log( result );
+					}
+				}
+			} );
+		} );
+
+
 	}
 };
 
 jQuery(function($)
 {
 	main.generateName();
+	main.chooseRace();
 });
 

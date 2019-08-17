@@ -18,6 +18,11 @@ class CharacterSettings
 		return $this->config[$setting];
 	}
 
+	public function getAllSettings()
+	{
+		return $this->config;
+	}
+
 	public function setSetting($setting, $value)
 	{
 		$this->config[$setting] = $value;

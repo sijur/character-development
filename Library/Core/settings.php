@@ -1,5 +1,10 @@
 <?php
 
+// TODO: Need to find a way to make these persist throughout the app.
+//  Currently the app forgets the settings from field to field. so we
+//  either need to pass them to everything, or write them somewhere,
+//  or do a session, and save them to a session variable.
+
 return [
 	// character name
 	'characterName' => '',
@@ -21,7 +26,7 @@ return [
 	'race' => '',
 	'alignment' => '',
 	'experiencePoints' => '',
-	'dciNumber' => '',
+//	'dciNumber' => '',
 
 	// character back story
 	'backStory' => '',

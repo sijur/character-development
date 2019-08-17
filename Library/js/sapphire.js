@@ -218,7 +218,6 @@
 
             xhr.onload = function()
             {
-                console.log(this);
                 if (this.status === 200)
                 {
                     prop.callBack(this.response);

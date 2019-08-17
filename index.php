@@ -19,7 +19,7 @@
 		$pageBuilder = new PageBuilder();
 		$pageBuilder->pageTitle( 'Character Development' );
 
-//		$pageBuilder->nameCreator();
+		$pageBuilder->nameCreator();
 		$pageBuilder->raceSelector();
 		?>
 
