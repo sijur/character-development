@@ -4,7 +4,7 @@ When contributing to this repository, please first discuss the change you wish t
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
-Please refer to our [style guide]() when contributing to the project
+Please refer to our [style guide](https://github.com/sijur/character-development/blob/master/STYLE_GUIDE.md) when contributing to the project
 
 ## Pull Request Process
 

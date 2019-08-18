@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eda19d73-3c82-4b77-956b-fc0924ff723c" name="Default Changelist" comment="fixed a bug in the README.md file.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="eda19d73-3c82-4b77-956b-fc0924ff723c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/CONTRIBUTING.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -74,7 +74,7 @@
       <workItem from="1565904092006" duration="153000" />
       <workItem from="1565904608545" duration="621000" />
       <workItem from="1565905253144" duration="14451000" />
-      <workItem from="1565983106363" duration="19347000" />
+      <workItem from="1565983106363" duration="19500000" />
     </task>
     <task id="LOCAL-00001" summary="Adding files to start the project">
       <created>1565822764941</created>
@@ -132,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566107446539</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fixed a bug in the README.md file.">
+      <created>1566107714320</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1566107714320</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
