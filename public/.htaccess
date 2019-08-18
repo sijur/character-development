@@ -1,0 +1,31 @@
+# this code is so the stats page will work for the site...
+ErrorDocument 401 "Error"
+ErrorDocument 403 "Error"
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} ^/(stats|failed_auth\.html).*$ [NC]
+RewriteRule . - [L]
+</IfModule>
+
+# this will make sure that the index.php file is loaded up first.
+DirectoryIndex index.php
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+# if the requested filename is not a directory.
+RewriteCond %{REQUEST_FILENAME} !-d
+# if the requested filename is not a file
+RewriteCond %{REQUEST_FILENAME} !-f
+# if the requested filename is not a link
+RewriteCond %{REQUEST_FILENAME} !-l
+
+# redirect to index.php?$1
+# $1 is just whatever follows the ?
+# we'll remove the ? in php through the router
+# that will make it appear better, but the site
+# relies on the query string in the url.
+RewriteRule ^(.+)$ index.php?$1 [QSA,L]

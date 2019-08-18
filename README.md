@@ -64,9 +64,9 @@ Again, what you put in the next set of lines of code are going to depend on what
 
 ```
 <VirtualHost *>
-    DocumentRoot "C:/dev/character-development"
+    DocumentRoot "C:/dev/character-development/public"
     ServerName local.character-development.com
-    <Directory "C:/dev/character-development">
+    <Directory "C:/dev/character-development/public">
         AllowOverride all
         Options FollowSymLinks Multiviews Indexes
         Allow from all

@@ -1,8 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eda19d73-3c82-4b77-956b-fc0924ff723c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/STYLE_GUIDE.md" beforeDir="false" afterPath="$PROJECT_DIR$/STYLE_GUIDE.md" afterDir="false" />
+    <list default="true" id="eda19d73-3c82-4b77-956b-fc0924ff723c" name="Default Changelist" comment="Basic Model, View, Controller stuff.">
+      <change afterPath="$PROJECT_DIR$/App/Config.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App/Controllers/Home.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App/DatabaseSettings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App/Views/Footer/footer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App/Views/Header/header.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/App/Views/Home/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Controller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Router.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Router/AddRoutes.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Router/Dispatch.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Router/MatchRoute.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Strings/Strings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/View.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/inc/autoload.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sapphire.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +62,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\dev\character-development\public" />
       <recent name="C:\dev\character-development\Library\Core" />
     </key>
   </component>
@@ -73,7 +95,7 @@
       <workItem from="1565904092006" duration="153000" />
       <workItem from="1565904608545" duration="621000" />
       <workItem from="1565905253144" duration="14451000" />
-      <workItem from="1565983106363" duration="19630000" />
+      <workItem from="1565983106363" duration="24393000" />
     </task>
     <task id="LOCAL-00001" summary="Adding files to start the project">
       <created>1565822764941</created>
@@ -145,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566107904151</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fixed a bug in the STYLE_GUIDE.md file.">
+      <created>1566108023679</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1566108023679</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -183,6 +212,8 @@
     <MESSAGE value="Starting files.  Not the site, but the repo's stuff." />
     <MESSAGE value="fixed a bug in the README.md file." />
     <MESSAGE value="fixed a bug in the README.md and the CONTRIBUTING.md files." />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed a bug in the README.md and the CONTRIBUTING.md files." />
+    <MESSAGE value="fixed a bug in the STYLE_GUIDE.md file." />
+    <MESSAGE value="Basic Model, View, Controller stuff." />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic Model, View, Controller stuff." />
   </component>
 </project>
