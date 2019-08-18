@@ -27,19 +27,19 @@ Okay, CSS is also self explanatory.  But a couple things of note:
 
 Here's an example of some CSS:
 ```
+html,
+body {
+    font-size: 100%;
+    font-family: 'Playfair Display';
+    line-height: 40px;
+}
+
 .blue-container {
     background-color: #0000FF; /* blue */
 }
 
 .white-text {
     color: #FFFFFF;  /* white */
-}
-
-html,
-body {
-    font-size: 100%;
-    font-family: 'Playfair Display';
-    line-height: 40px;
 }
 ```
 
