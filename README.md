@@ -5,7 +5,7 @@ This project is about creating characters, and will evolve as we can into saving
 
 To start out with this project you will need to download the repository and save it in a place where you typically work on php/mysql websites.
 
-Make sure to make not of where you're downloading the project from.  I like to use source tree to manage my projects
+Make sure to make not of where you're downloading the project from. I like to use source tree to manage my projects
 
 ### Prerequisites
 
@@ -109,15 +109,8 @@ We use [SemVer](http://semver.org/) for versioning.
 * **Steven O'Driscoll** - *Initial work*
 * **Matthew Brown** - *Initial work*
 
-See also the list of [contributors]() who participated in this project.
+See also the list of [contributors](https://github.com/sijur/character-development/blob/master/contributers.txt) who participated in this project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
