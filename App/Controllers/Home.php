@@ -13,6 +13,11 @@ class Home extends Controller
 		return 'Home';
 	}
 
+	protected function displayHeader()
+	{
+		return true;
+	}
+
 	public function indexAction()
 	{
 		View::render('Home/index.php');

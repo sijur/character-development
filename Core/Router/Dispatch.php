@@ -77,10 +77,12 @@ class Dispatch extends MatchRoute
 			$strings = new Strings();
 			$controller = $strings::convertToPascalCase($controller);
 
+
 			/*
 			 * Since our autoloader requires the namespace, we have to add that in here.
 			 */
 			$controller = $this->getNamespace() . $controller;
+
 
 			/*
 			 * Okay, so if the class exists we need to do stuff with it.
@@ -88,6 +90,7 @@ class Dispatch extends MatchRoute
 			 */
 			if (class_exists($controller))
 			{
+
 				/*
 				 * Okay, remember that controller up there that we got,
 				 * well we also need the action.  The action is the function

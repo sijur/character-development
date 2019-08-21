@@ -6,17 +6,20 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Character Development || <?php if (isset($title)) { echo htmlspecialchars($title); } ?></title>
 
-	<link rel="stylesheet" href="/public/css/main.css">
+	<link rel="stylesheet" href="/css/main.css">
 	<base href="./">
 </head>
 <body>
-<div class="header-area">
-	<div class="header-container">
-		<div class="logo-container">
-			<a href="/" title="Go to the home page">Character Development</a>
-		</div>
-		<div class="menu-container">
-			<!-- place navigation here. -->
+<?php if( isset($header) && ($header) ) { ?>
+	<div class="header-area">
+		<div class="header-container">
+			<div class="logo-container">
+				<a href="/" title="Go to the home page">Character Development</a>
+			</div>
+
+			<div class="menu-container">
+				<!-- place navigation here. -->
+			</div>
 		</div>
 	</div>
-</div>
+<?php } ?>

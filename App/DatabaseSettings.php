@@ -39,7 +39,7 @@ class DatabaseSettings
 				$settings = (object)[
 					'host' => $server,
 					'dbUser' => 'root',
-					'dbName' => '[enter db name]',
+					'dbName' => 'character_db',
 					'password' => ''
 				];
 				break;

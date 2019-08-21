@@ -11,18 +11,12 @@ require_once '../Core/inc/autoload.php';
 
 use Core\Router\Dispatch;
 
-session_start();
-$_SESSION['loggedin'] = true;
-if ( !isset($_SESSION['loggedin']) && $_SESSION['loggedin'] !== true )
-{
-	header( 'location: /login' );
-}
-else
-{
-	$debug = isset($_REQUEST['debug']);
+$debug = isset($_REQUEST['debug']);
 
-//	var_dump($_SERVER['QUERY_STRING']);
+//date_default_timezone_set('America/Denver');
+error_reporting(E_ALL & ~E_WARNING);
+set_error_handler('Core\Error::errorHandler');
+set_exception_handler('Core\Error::exceptionHandler');
 
-	$router = new Dispatch($_SERVER['QUERY_STRING']);
-	$router->setup();
-}
+$router = new Dispatch($_SERVER['QUERY_STRING']);
+$router->setup();

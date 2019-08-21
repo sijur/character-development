@@ -29,9 +29,12 @@ Here's an example of some CSS:
 ```
 html,
 body {
-    font-size: 100%;
-    font-family: 'Playfair Display';
-    line-height: 40px;
+    font: normal 14px/26px 'Playfair Display', serif;
+}
+
+.container {
+    border: 1px #000000 solid; /* black */
+    margin: 0 auto;
 }
 
 .blue-container {
@@ -48,8 +51,6 @@ Notice that I didn't put the color, and the background color in the same css sel
 If you have to use the same css code for multiple things put a comma, and then the next item on the next line.
 
 Use the long values for colors, and if you know it put the name of the color in a comment so that we all know which colors are being referred to.
-
-Currently we want to put the items on their own line, so instead of using the font short-hand, we're separating it out into their own css attributes.
 
 In the future we may end up using SASS, or SCSS, or something else, in the meantime let's keep it simple.
 

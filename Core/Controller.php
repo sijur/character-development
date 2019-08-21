@@ -73,10 +73,13 @@ abstract class Controller
 
 	abstract protected function getTitle();
 
+	abstract protected function displayHeader();
+
 	protected function header()
 	{
 		View::render('Header/header.php', [
-			'title' => $this->getTitle()
+			'title' => $this->getTitle(),
+			'header' => $this->displayHeader()
 		]);
 	}
 

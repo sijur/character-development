@@ -1,51 +1,5 @@
 var main =
 {
-	generateName: function()
-	{
-		$( '#characterName' ).on( 'click', function()
-		{
-			_s.ajax( {
-				type: 'POST',
-				url: 'Library/callMethod.php',
-				data: {
-					className: 'NameGenerator',
-					methodName: 'getName'
-				},
-				callBack: function( result )
-				{
-					// $('#characterNameLabel').html( result );
-					$( '#characterNameInput' ).val( result );
-				} 
-			} );
-		} );
-
-		$( '#characterNameInput' ).on( 'blur', function()
-		{
-			_s.ajax( {
-				type: 'POST',
-				url: 'Library/callMethod.php',
-				data: {
-					className: 'NameGenerator',
-					methodName: 'saveName',
-					value: this.value
-				},
-				callBack: function( result )
-				{
-					if ( result !== '' )
-					{
-						console.log( result );
-					}
-				}
-			} );
-		} );
-
-		$( '#clearLink' ).on( 'click', function( evt )
-		{
-			evt.preventDefault();
-			$( '#characterNameInput' ).val( '' );
-		} );
-	},
-
 	chooseRace: function()
 	{
 		$( '#raceSelectorBtn' ).on( 'click', function()
@@ -67,14 +21,33 @@ var main =
 				}
 			} );
 		} );
+	},
 
+	submitForm: function()
+	{
+		$('#loginButton').on('click', function(evt)
+		{
+			evt.preventDefault();
+			_s.ajax({
+				type: 'POST',
+				url: '/App/Models/login.php',
+				data: {
+					username: $('#userName').val(),
+					password: $('#password').val()
+				},
+				callBack: function( result )
+				{
+					console.log(result);
+				}
+			});
+		});
 
 	}
 };
 
 jQuery(function($)
 {
-	main.generateName();
 	main.chooseRace();
+	main.submitForm();
 });
 

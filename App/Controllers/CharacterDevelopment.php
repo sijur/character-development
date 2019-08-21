@@ -14,6 +14,11 @@ class CharacterDevelopment extends Controller
 		return 'Character Development';
 	}
 
+	protected function displayHeader()
+	{
+		return true;
+	}
+
 	public function indexAction()
 	{
 		View::render('CharacterDevelopment/index.php');

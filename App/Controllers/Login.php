@@ -13,8 +13,13 @@ class Login extends Controller
 		return 'Login';
 	}
 
+	protected function displayHeader()
+	{
+		return false;
+	}
+
 	public function indexAction()
 	{
-		View::render('Login/index.php');
+		View::render( 'Login/index.php' );
 	}
 }
