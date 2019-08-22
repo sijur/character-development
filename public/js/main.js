@@ -30,7 +30,7 @@ var main =
 			evt.preventDefault();
 			_s.ajax({
 				type: 'POST',
-				url: '/App/Models/login.php',
+				url: '/login/verify',
 				data: {
 					username: $('#userName').val(),
 					password: $('#password').val()
@@ -41,13 +41,12 @@ var main =
 				}
 			});
 		});
-
 	}
 };
 
 jQuery(function($)
 {
 	main.chooseRace();
-	main.submitForm();
+	// main.submitForm();
 });
 

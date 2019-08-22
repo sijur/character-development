@@ -6,5 +6,5 @@ namespace App;
 
 class Config
 {
-	const SHOW_ERRORS = false;
+	const SHOW_ERRORS = true;
 }

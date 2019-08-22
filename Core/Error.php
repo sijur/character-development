@@ -61,7 +61,6 @@ class Error
 		{
 			$dir = realpath(dirname(__DIR__) . '/public/logs/');
 			$log = $dir . DIRECTORY_SEPARATOR . date('Y-m-d') . '.txt';
-			var_dump($log);
 			ini_set('error_log', $log);
 			$message = "Uncaught exception: '" . get_class($exception) . "'";
 			$message .= " with message '" . $exception->getMessage() . "'";
