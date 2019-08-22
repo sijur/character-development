@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eda19d73-3c82-4b77-956b-fc0924ff723c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/App/Models/PageLogTracer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Log.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/LogEntry.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Controllers/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Controllers/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Models/LoginScript.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/LoginScript.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Views/CharacterDevelopment/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/CharacterDevelopment/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Views/Login/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Views/Login/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Error.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Error.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +72,12 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpDebugGeneral" break_at_first_line="true" listening_started="true" />
+  <component name="PhpServers">
+    <servers>
+      <server host="local.charactercreator.com" id="639386ac-9461-414a-b752-d28182d198a3" name="local.charactercreator.com" />
+    </servers>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="1PTigyFt84VDtNTxTkIDRntxOZe" />
   <component name="PropertiesComponent">
@@ -136,7 +150,7 @@
       <workItem from="1565904092006" duration="153000" />
       <workItem from="1565904608545" duration="621000" />
       <workItem from="1565905253144" duration="14451000" />
-      <workItem from="1565983106363" duration="68161000" />
+      <workItem from="1565983106363" duration="79360000" />
     </task>
     <task id="LOCAL-00001" summary="Adding files to start the project">
       <created>1565822764941</created>
@@ -243,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566449690696</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="character creation page. greeting added.">
+      <created>1566450564055</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1566450564055</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
@@ -285,6 +306,7 @@
     <MESSAGE value="Basic Model, View, Controller stuff." />
     <MESSAGE value="Added in the login page, and the character-development page." />
     <MESSAGE value="Login page... currently works to log you in.  WILL NOT create a profile (user or password), or log you out." />
-    <option name="LAST_COMMIT_MESSAGE" value="Login page... currently works to log you in.  WILL NOT create a profile (user or password), or log you out." />
+    <MESSAGE value="character creation page. greeting added." />
+    <option name="LAST_COMMIT_MESSAGE" value="character creation page. greeting added." />
   </component>
 </project>

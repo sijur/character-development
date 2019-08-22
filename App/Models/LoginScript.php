@@ -47,11 +47,9 @@ class LoginScript
 
 		$sql = "SELECT * FROM users WHERE user_name = '$user' AND password = '$pass'";
 
+		return mysqli_query($conn, $sql);
 
-
-		$result = mysqli_query($conn, $sql);
-
-		return mysqli_num_rows($result);
+//		return mysqli_num_rows($result);
 	}
 
 	protected static function render($msg)

@@ -11,4 +11,4 @@ elseif ($_SESSION['loggedin'] == false)
 }
 ?>
 
-<h2><?='Thank you for logging in ' . $_SESSION['userName']; ?></h2>
+<h2><?='Thank you for logging in ' . $_SESSION['firstName']; ?></h2>

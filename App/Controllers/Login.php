@@ -30,7 +30,9 @@ class Login extends Controller
 		$pass = $_POST['password'];
 
 		$login = new LoginScript($user, $pass);
-		$count = $login->setup();
+		$userInformation = $login->setup();
+
+		$count = mysqli_num_rows($userInformation);
 
 		if ($count == 1)
 		{
@@ -38,6 +40,7 @@ class Login extends Controller
 			$_SESSION['loggedin'] = true;
 			$_SESSION['userName'] = $user;
 			$_SESSION['loggedOut'] = false;
+			$this->setUserName($userInformation);
 
 			header('location: /character-development');
 		}
@@ -49,13 +52,24 @@ class Login extends Controller
 		}
 	}
 
+	protected function setUserName($user)
+	{
+		while ($row = mysqli_fetch_array($user))
+		{
+			$_SESSION['firstName'] = $row['first_name'];
+			$_SESSION['lastName'] = $row['last_name'];
+		}
+	}
+
 	public function logOutAction()
 	{
 		session_start();
-		$_SESSION['loggedin'] = false;
-		$_SESSION['loginError'] = false;
-		$_SESSION['loggedOut'] = true;
-		$_SESSION['userName'] = '';
+		unset($_SESSION['loggedin']);
+		unset($_SESSION['loginError']);
+		unset($_SESSION['loggedOut']);
+		unset($_SESSION['userName']);
+		unset($_SESSION['firstName']);
+		unset($_SESSION['lastName']);
 
 		header('location: /');
 	}

@@ -6,7 +6,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 }
 else
 {
-	if ($_SESSION['loginError'] == true) { ?>
+	if (isset($_SESSION['logginError']) && $_SESSION['loginError'] == true) { ?>
 		<div class="error">The username or password is incorrect</div>
 	<?php } ?>
 <div class="loginContainer">
