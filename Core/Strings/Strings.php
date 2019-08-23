@@ -45,4 +45,9 @@ class Strings
 		 */
 		return lcfirst(self::convertToPascalCase($string));
 	}
+
+	public static function render($msg)
+	{
+		echo $msg;
+	}
 }

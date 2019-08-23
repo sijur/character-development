@@ -1,14 +1,17 @@
 <?php
 session_start();
-if ($_SESSION['loggedin'] == true)
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true || isset($_SESSION['userName']))
 {
 	$_SESSION['loginError'] = false;
+	$firstName = (isset($_SESSION['firstName'])) ? $_SESSION['firstName'] : '';
 }
-elseif ($_SESSION['loggedin'] == false)
+else
 {
 	$_SESSION['loginError'] = true;
 	header('location: /login');
 }
 ?>
 
-<h2><?='Thank you for logging in ' . $_SESSION['firstName']; ?></h2>
+<div class="mainContainer">
+	<h2>Thank you for logging in <?=$firstName; ?></h2>
+</div>

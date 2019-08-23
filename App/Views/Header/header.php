@@ -16,10 +16,15 @@
 			<div class="logo-container">
 				<a href="/" title="Go to the home page">Character Development</a>
 			</div>
+		</div>
+	</div>
 
-			<div class="menu-container">
-				<!-- place navigation here. -->
-			</div>
+	<div class="menu-area">
+		<div class="menu-container">
+			<?php
+			$nav = new \App\Models\Navigation();
+			$nav->setup();
+			?>
 		</div>
 	</div>
 <?php } ?>
