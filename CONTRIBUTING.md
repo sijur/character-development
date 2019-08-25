@@ -15,7 +15,7 @@ Please refer to our [style guide](https://github.com/sijur/character-development
 
 ## Code of Conduct
 
-Please refer to our [Code of Conduct](https://github.com/sijur/character-development/CODE_OF_CONDUCT) for information regarding our code of conduct.
+Please refer to our [Code of Conduct](https://github.com/sijur/character-development/CODE_OF_CONDUCT.md) for information regarding our code of conduct.
 
 [homepage]: http://contributor-covenant.org
 [version]: http://contributor-covenant.org/version/1/4/

@@ -98,7 +98,7 @@ This may be changed in the future, however the point of this project at this poi
 
 ## Contributing
 
-Please read [Contributing Guidelines](https://github.com/sijur/character-development/blob/master/CONTRIBUTING.md) for details on how to contribute to the project. Please read our [Code of Conduct Guidelines](https://github.com/sijur/character-development/blob/master/CODE_OF_CONDUCT) for our code of conduct, and our [Pull Requests Guidelines](https://github.com/sijur/character-development/blob/master/PULL_REQUESTS.md) for details on how to submitting pull requests to us.
+Please read [Contributing Guidelines](https://github.com/sijur/character-development/blob/master/CONTRIBUTING.md) for details on how to contribute to the project. Please read our [Code of Conduct Guidelines](https://github.com/sijur/character-development/blob/master/CODE_OF_CONDUCT.md) for our code of conduct, and our [Pull Requests Guidelines](https://github.com/sijur/character-development/blob/master/PULL_REQUESTS.md) for details on how to submitting pull requests to us.
 
 ## Versioning
 
