@@ -87,7 +87,7 @@ Currently we're pushing to the repository, and then Steven O'Driscoll is pushing
 
 However should you be pushing to the server until we're ready to push version 1, we're not versioning.
 
-We are however putting comments all over the place.  Make sure to read through the [CONTRIBUTING.md guide](https://github.com/sijur/character-development/blob/master/CONTRIBUTING.md) in order to find out what we're expecting.
+We are however putting comments all over the place.  Make sure to read through the [CONTRIBUTING guide](https://github.com/sijur/character-development/blob/master/CONTRIBUTING.md) in order to find out what we're expecting.
 
 ## Built with
 This project is going to be basic software, at the most it's only going to be PHP, Mysql, Javascript, HTML, CSS.  
@@ -109,7 +109,7 @@ We use [SemVer](http://semver.org/) for versioning.
 * **Steven O'Driscoll** - *Initial work*
 * **Matthew Brown** - *Initial work*
 
-See also the list of [contributors](https://github.com/sijur/character-development/contributers.txt) who participated in this project.
+See also the list of [contributors](https://github.com/sijur/character-development/blob/master/contributers.txt) who participated in this project.
 
 ## License
 
