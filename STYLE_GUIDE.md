@@ -1,7 +1,9 @@
-#Style Guide
+# Style Guide
+
 If you want to change any part of this please let Matt or I (Steven) know what it is that you're wanting to change.  We are certainly open to changes.
 
 ## HTML
+
 I think that HTML is pretty straight forward.  Make sure that you're indenting your code in a manner that makes sense. An example of that might be the following:
 
 ```
