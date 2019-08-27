@@ -22,13 +22,11 @@ class DatabaseSettings
 
 	private static function settings($host)
 	{
-		$server = ($host == 'server') ? '' : 'localhost';
-
 		switch ($host)
 		{
 			case 'server':
 				$settings = (object)[
-					'host' => $server,
+					'host' => $host,
 					'dbUser' => '[db user]',
 					'dbName' => '[db name]',
 					'password' => '[db password]'
@@ -37,7 +35,7 @@ class DatabaseSettings
 			case 'localhost':
 			default:
 				$settings = (object)[
-					'host' => $server,
+					'host' => $host,
 					'dbUser' => 'root',
 					'dbName' => 'character_db',
 					'password' => ''
