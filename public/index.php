@@ -22,5 +22,8 @@ set_exception_handler('Core\Error::exceptionHandler');
 Log::setLogLevelFilter(Config::LOG_LEVEL);
 Log::debug("Attempting to route page \"" . $_SERVER['QUERY_STRING'] . "\"");
 
-$router = new Dispatch($_SERVER['QUERY_STRING']);
-$router->setup();
+if (!isset($_REQUEST['ajax']))
+{
+	$router = new Dispatch($_SERVER['QUERY_STRING']);
+	$router->setup();
+}
