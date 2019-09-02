@@ -36,7 +36,7 @@ class LoginScript
 	protected function getUserInformation($user, $pass)
 	{
 		$dbInfo = new DatabaseSettings();
-		$db = $dbInfo->setup('localhost');
+		$db = $dbInfo->setup();
 		$conn = mysqli_connect($db->host, $db->dbUser, $db->password, $db->dbName, '3306');
 
 		$user = stripslashes($user);
@@ -48,8 +48,6 @@ class LoginScript
 		$sql = "SELECT * FROM users WHERE user_name = '$user' AND password = '$pass'";
 
 		return mysqli_query($conn, $sql);
-
-//		return mysqli_num_rows($result);
 	}
 
 	protected static function render($msg)

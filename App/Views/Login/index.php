@@ -2,7 +2,7 @@
 session_start();
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
-	header('location: /character-development');
+	header('location: /account');
 }
 else
 {

@@ -52,6 +52,13 @@ h1.pageTitle {
     background-color: #FEFEFE;
 }
 
+.logo-container a {
+    width: 100%;
+    position: relative;
+    display: table;
+    text-align: center;
+}
+
 /*
  * Login container
  */
@@ -180,11 +187,28 @@ h1.pageTitle {
     margin: 0 auto;
 }
 
+.menu-container ul {
+    text-align: right;
+}
+
 .menu-container ul li {
     list-style-type: none;
     list-style-position: outside;
     display: inline;
     padding: 0 20px;
+    text-align: right;
+}
+
+.table {
+    display: table;
+}
+
+.row {
+    display: table-row;
+}
+
+.col {
+    display: table-cell;
 }
 
 .footer {

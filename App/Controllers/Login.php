@@ -40,9 +40,9 @@ class Login extends Controller
 			$_SESSION['loggedin'] = true;
 			$_SESSION['userName'] = $user;
 			$_SESSION['loggedOut'] = false;
-			$this->setUserName($userInformation);
+			$this->setUserInformation($userInformation);
 
-			header('location: /character-development');
+			header('location: /account');
 		}
 		else
 		{
@@ -52,12 +52,11 @@ class Login extends Controller
 		}
 	}
 
-	protected function setUserName($user)
+	protected function setUserInformation($user)
 	{
 		while ($row = mysqli_fetch_array($user))
 		{
-			$_SESSION['firstName'] = $row['first_name'];
-			$_SESSION['lastName'] = $row['last_name'];
+			$_SESSION['userID'] = $row['id'];
 		}
 	}
 
@@ -70,6 +69,7 @@ class Login extends Controller
 		unset($_SESSION['userName']);
 		unset($_SESSION['firstName']);
 		unset($_SESSION['lastName']);
+		unset($_SESSION['email']);
 
 		header('location: /');
 	}
