@@ -30,7 +30,7 @@ As for the Version Control Software, you'll need to install [GIT](https://git-sc
 
 ### Getting the project up and running
 
-Once you have XAMPP, and a text editor installed, then you need to be able to open the project in your browser.
+Once you have XAMPP, and a text editor installed, the next step is to be able to open the project in your browser.
 
 You can set the project up to run on the url http://localhost/character-development, or you can set it up so that it runs on http://local.character-development.com, it's really up to you.  If you want to work on the project through localhost, then you don't need to worry about the next steps.
 
@@ -46,6 +46,7 @@ At the end of the file you'll want to put the following line:
 127.0.0.1       local.character-development.com
 ```
 
+##### httpd.conf file
 Then you'll want to open the httpd.conf file in order to make sure that your virtual hosts line is enabled.
 
 If you installed XAMPP then you'll find the httpd.conf file here: ```C:\xampp\apache\conf\httpd.conf```
@@ -58,6 +59,7 @@ find the following line, and remove the ```#``` from the start of the line.
 
 If it's not there, then don't worry about it.
 
+##### httpd-vhosts.conf file
 Then find your httpd-vhosts.conf file.  You should find it here: ```C:\xampp\apache\conf\extra\httpd-vhosts.conf```
 
 Again, what you put in the next set of lines of code are going to depend on what the URL is that you're going to be using, so we'll assume that you're going to call it local.character-development.com, and that you're putting the site in a folder called 'dev' in the C drive.
@@ -76,6 +78,18 @@ Again, what you put in the next set of lines of code are going to depend on what
 ```
 
 Okay, now you should be able to restart the apache portion of the server, (click the stop button in XAMPP next to Apache, then start)
+
+#### Setting up the database
+
+Since you installed XAMPP you can open the console and click on the "Admin" button on the Mysql row. This will take you to the PHPMyAdmin page. Here you'll create a character_db database.
+
+Unless you've set up a different user and password then the default user and password should be 'root', and '' respectively.  NOTE '' means leave it empty.
+
+Once you've created the database navigate to character_db and then click on the import tab.
+
+Click on the Browse button and find the character_db.sql file in the project folder.
+
+Then click Go.  This will set up the database as it is on the server.
 
 ## Tests
 
