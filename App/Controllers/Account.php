@@ -19,7 +19,6 @@ class Account extends Controller
 
 	public function indexAction()
 	{
-
 		View::render('Account/index.php');
 	}
 }
