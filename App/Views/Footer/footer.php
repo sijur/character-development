@@ -2,9 +2,7 @@
 	&copy; <?=date('Y'); ?> by <a href="http://sapphireflames.com" class="attribution">Sapphire Flames</a> All Rights Reserved.
 </div>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-		crossorigin="anonymous"></script>
+<script src="js/jquery.min.js" defer></script>
 <script src="js/sapphire.js" defer></script>
 <script src="js/main.js" defer></script>
 </body></html>

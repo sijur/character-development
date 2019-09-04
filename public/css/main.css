@@ -199,6 +199,19 @@ h1.pageTitle {
     text-align: right;
 }
 
+.section {
+    width: 100%;
+    margin: 0 10px 35px;
+    box-sizing: border-box;
+}
+
+.section-title {
+    text-transform: uppercase;
+    letter-spacing: 1.125px;
+    border-bottom: 1px black solid;
+    font-weight: bold;
+}
+
 .table {
     display: table;
 }
