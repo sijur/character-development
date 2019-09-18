@@ -2,6 +2,8 @@
 session_start();
 
 use App\Models\AccountInformation;
+use App\Models\PageBuilder;
+
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true || isset($_SESSION['userName']))
 {
 	$_SESSION['loginError'] = false;
@@ -20,31 +22,16 @@ $row = mysqli_fetch_array($userInfo);
 $firstName = $row['first_name'];
 $fullName = $row['fullName'];
 
+$html = new PageBuilder();
+
 ?>
 
 <div class="mainContainer">
-	<h4 id="loginTitle">Thank you for logging in <?=$firstName; ?></h4>
-	<div class="section">
-		<div class="section-title">User Information</div>
-		<div class="table">
-			<div class="row">
-				<div class="col">Name:</div>
-				<div class="col"><?=$fullName; ?></div>
-			</div>
-			<div class="row">
-				<div class="col">User Name:</div>
-				<div class="col"><?=$row['user']; ?></div>
-			</div>
-			<div class="row">
-				<div class="col">Email:</div>
-				<div class="col"><?=$row['email_address']; ?></div>
-			</div>
-			<div class="row">
-				<div class="col">Bio:</div>
-				<div class="col"><?=$row['bio']; ?></div>
-			</div>
-		</div>
-	</div>
+	<?php
+		$html->h4('loginTitle', $firstName);
+		$html->userSection($fullName, $row['user'], $row['email_address'], $row['bio']);
+	?>
+
 	<div class="section">
 		<div class="section-title">Games</div>
 	</div>
