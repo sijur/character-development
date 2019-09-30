@@ -20,7 +20,7 @@ class AccountInformation
 		return $this->getUserInformation();
 	}
 
-	protected function getUserInformation()
+	private function getUserInformation()
 	{
 		$dbInfo = new DatabaseSettings();
 		$db = $dbInfo->setup();
