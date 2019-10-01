@@ -1,6 +1,12 @@
 <?php
 session_start();
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+
+//use Core\IsVerified;
+//
+//$verify = new IsVerified();
+//$verify->verify('login');
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+{
 
 	header('location: /account');
 }

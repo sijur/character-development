@@ -1,18 +1,22 @@
 <?php
 session_start();
 
+use Core\IsVerified;
 use App\Models\AccountInformation;
 use App\Models\PageBuilder;
 
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true || isset($_SESSION['userName']))
-{
-	$_SESSION['loginError'] = false;
-}
-else
-{
-	$_SESSION['loginError'] = true;
-	header('location: /login');
-}
+$verify = new IsVerified();
+$verify->verify();
+
+//if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true || isset($_SESSION['userName']))
+//{
+//	$_SESSION['loginError'] = false;
+//}
+//else
+//{
+//	$_SESSION['loginError'] = true;
+//	header('location: /login');
+//}
 $id = $_SESSION['userID'];
 $accountInfo = new AccountInformation($id);
 $userInfo = $accountInfo->setup();
