@@ -38,7 +38,7 @@ class IsVerified
 
 	protected function loggedIn()
 	{
-		return (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true);
+		return (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true);
 	}
 
 	protected function setSessionError($error)

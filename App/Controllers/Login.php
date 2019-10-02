@@ -37,7 +37,7 @@ class Login extends Controller
 		if ($count == 1)
 		{
 			$_SESSION['loginError'] = false;
-			$_SESSION['loggedin'] = true;
+			$_SESSION['loggedIn'] = true;
 			$_SESSION['userName'] = $user;
 			$_SESSION['loggedOut'] = false;
 			$this->setUserInformation($userInformation);
@@ -47,7 +47,7 @@ class Login extends Controller
 		else
 		{
 			$_SESSION['loginError'] = true;
-			$_SESSION['loggedin'] = false;
+			$_SESSION['loggedIn'] = false;
 			header('location: /login');
 		}
 	}
@@ -63,7 +63,7 @@ class Login extends Controller
 	public function logOutAction()
 	{
 		session_start();
-		unset($_SESSION['loggedin']);
+		unset($_SESSION['loggedIn']);
 		unset($_SESSION['loginError']);
 		unset($_SESSION['loggedOut']);
 		unset($_SESSION['userName']);
@@ -71,6 +71,6 @@ class Login extends Controller
 		unset($_SESSION['lastName']);
 		unset($_SESSION['email']);
 
-		header('location: /');
+		header('location: /login');
 	}
 }
