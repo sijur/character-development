@@ -62,7 +62,7 @@ class Login extends Controller
 
 	public function logOutAction()
 	{
-		if (session_status() == 'PHP_SESSION_NONE')
+		if (session_status() == PHP_SESSION_NONE)
 		{
 			session_start();
 		}
