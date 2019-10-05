@@ -8,6 +8,33 @@ class HtmlElementCreator
 {
 	public function __construct() {}
 
+	public function headerEle($level, $text, $id = '', $class = '')
+	{
+		$lvl = '';
+		switch ($level)
+		{
+			case '1':
+				$lvl = 'h1';
+				break;
+			case '2':
+				$lvl = 'h2';
+				break;
+			case '3':
+				$lvl = 'h3';
+				break;
+			case '4':
+				$lvl = 'h4';
+				break;
+		}
+
+		$msg = "<$lvl";
+		$msg .= ($id !== '')? " id='$id'" : '';
+		$msg .= ($class !== '')? " class='$class'" : '';
+		$msg .= ">$text</$lvl>";
+		
+		return $msg;
+	}
+
 	public function h4Ele($text, $id)
 	{
 		self::render("<h4 id='$id'>$text</h4>");
@@ -16,6 +43,29 @@ class HtmlElementCreator
 	public function basicDiv($class, $text)
 	{
 		return "<div class='$class'>$text</div>";
+	}
+
+	public function basicForm($id, $action, $content)
+	{
+		return "<form name='$id' id='$id' action='$action' method='post'>$content</form>";
+	}
+
+	public function input($type, $id, $labelClass, $inputClass, $labelText)
+	{
+		$msg = "<label for='$id' class='$labelClass'>$labelText</label>";
+		$msg .= "<input type='$type' class='$inputClass' id='$id' name='$id'>";
+
+		return $msg;
+	}
+
+	public function basicLink($href, $class, $text)
+	{
+		return "<a href='$href' class='$class'>$text</a>";
+	}
+
+	public function button($id, $class, $text)
+	{
+		return "<button id='$id' class='$class'>$text</button>";
 	}
 
 	public function section()
