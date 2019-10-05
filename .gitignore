@@ -5,3 +5,4 @@
 
 # .idea is for PHPStorm
 /.idea/
+public/logs/
