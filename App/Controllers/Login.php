@@ -62,7 +62,10 @@ class Login extends Controller
 
 	public function logOutAction()
 	{
-		session_start();
+		if (session_status() == 'PHP_SESSION_NONE')
+		{
+			session_start();
+		}
 		unset($_SESSION['loggedIn']);
 		unset($_SESSION['loginError']);
 		unset($_SESSION['loggedOut']);

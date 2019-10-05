@@ -8,6 +8,12 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<base href="./">
+	<?php
+		if (session_status() == 'PHP_SESSION_NONE')
+		{
+			session_start();
+		}
+	?>
 </head>
 <body>
 <?php if( isset($header) && ($header) ) { ?>
