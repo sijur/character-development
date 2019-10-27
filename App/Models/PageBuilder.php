@@ -82,6 +82,29 @@ class PageBuilder
 		return $msg;
 	}
 
+	public function mainCharacterCreationForm()
+	{
+		$html = new HtmlElementCreator();
+		$content = $this->characterCreationSections();
+		$msg = $html->basicForm('characterCreationForm', '/character-development/save', $content);
+
+		self::render($msg);
+	}
+
+	protected function characterCreationSections()
+	{
+		$html = new HtmlElementCreator();
+//		$msg = $this->radioSection();
+//		return $msg;
+	}
+
+	protected function radioSection($legend, $radios = [])
+	{
+		$html = new HtmlElementCreator();
+
+		return $msg;
+	}
+
 	protected static function render($msg)
 	{
 		echo $msg;
