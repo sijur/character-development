@@ -45,6 +45,13 @@ class HtmlElementCreator
 		return "<div class='$class'>$text</div>";
 	}
 
+	public function radioButtonDiv($id, $class = 'selectorContainer', $name = 'race')
+	{
+		$content = $this->reverseInput('radio', $id, $name, '', '');
+		$divId = $id . '-selector';
+		return "<div id='$divId' class='$class'>$content</div>";
+	}
+
 	public function basicForm($id, $action, $content)
 	{
 		return "<form name='$id' id='$id' action='$action' method='post'>$content</form>";
@@ -54,6 +61,15 @@ class HtmlElementCreator
 	{
 		$msg = "<label for='$id' class='$labelClass'>$labelText</label>";
 		$msg .= "<input type='$type' class='$inputClass' id='$id' name='$id'>";
+
+		return $msg;
+	}
+
+	protected function reverseInput($type, $id, $name, $labelClass, $inputClass)
+	{
+		$labelText = ucfirst($id);
+		$msg = "<input type='$type' class='$inputClass' id='$id' name='$name' value='$id'>";
+		$msg .= "<label for='$id' class='$labelClass'>$labelText</label>";
 
 		return $msg;
 	}
@@ -96,6 +112,15 @@ class HtmlElementCreator
 			$msg .= '</div>';
 			$num--;
 		}
+		return $msg;
+	}
+
+	public function fieldset($class, $legend, $html)
+	{
+		$msg = "<fieldset class='$class'>";
+		$msg .= "<legend>$legend</legend>";
+		$msg .= $html;
+		$msg .= "</fieldset>";
 		return $msg;
 	}
 

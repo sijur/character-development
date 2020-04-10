@@ -5,11 +5,11 @@ if (session_status() == PHP_SESSION_NONE)
 }
 
 use Core\IsVerified;
+use App\Models\PageBuilder;
 
 $verify = new IsVerified();
 $verify->verify();
-?>
 
-<div class="mainContainer">
-	<form action=""></form>
-</div>
+$html = new PageBuilder();
+$html->mainContainerCharacterCreation();
+?>
