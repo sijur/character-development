@@ -45,9 +45,12 @@ class HtmlElementCreator
 		return "<div class='$class'>$text</div>";
 	}
 
-	public function radioButtonDiv($id, $class = 'selectorContainer', $name = 'race')
+	public function radioButtonDiv($id)
 	{
-		$content = $this->reverseInput('radio', $id, $name, '', '');
+		$class = 'selectorContainer';
+		$name = 'race';
+
+		$content = $this->reverseInput('radio', $id, $name);
 		$divId = $id . '-selector';
 		return "<div id='$divId' class='$class'>$content</div>";
 	}
@@ -65,7 +68,7 @@ class HtmlElementCreator
 		return $msg;
 	}
 
-	protected function reverseInput($type, $id, $name, $labelClass, $inputClass)
+	protected function reverseInput($type, $id, $name, $labelClass = '', $inputClass = '')
 	{
 		$labelText = ucfirst($id);
 		$msg = "<input type='$type' class='$inputClass' id='$id' name='$name' value='$id'>";

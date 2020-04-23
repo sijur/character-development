@@ -103,105 +103,44 @@ class PageBuilder
 		$html = new HtmlElementCreator();
 
 		// first section RACE
-		$content = $this->raceElementContainers();
+		$content = $this->radioButtonContainers(['dwarf', 'elf', 'halfling', 'human', 'dragonborn', 'gnome', 'half-elf', 'half-orc', 'tiefling']);
 		$msg = $html->fieldset('characterSection', 'Race', $content);
 
-		$content = $this->dwarfSubRaceContainer();
+		$content = $this->radioButtonContainers(['hill dwarf', 'mountain dwarf']);
 		$msg .= $html->fieldset('dwarfSubRaceSection', 'Dwarf Sub Race', $content);
 
-		$content = $this->elfSubRaceContainers();
+		$content = $this->radioButtonContainers(['high-elf', 'wood-elf', 'dark-elf']);
 		$msg .= $html->fieldset('elfSubRaceSection', 'Elf Sub Race', $content);
 
-		$content = $this->halflingSubRaceContainers();
+		$content = $this->radioButtonContainers(['lightfoot', 'stout']);
 		$msg .= $html->fieldset('halflingSubRaceSection', 'Halfling Sub Race', $content);
 
-		$content = $this->humanSubRaceContainers();
+		$content = $this->radioButtonContainers(['standard', 'variant']);
 		$msg .= $html->fieldset('humanSubRaceSection', 'Human Sub Race', $content);
 
-		$content = $this->dragonBornSubRaceContainers();
+		$content = $this->radioButtonContainers(['black', 'blue', 'brass', 'bronze', 'copper', 'gold', 'green', 'red', 'silver', 'white']);
 		$msg .= $html->fieldset('dragonbornSubRaceSection', 'Dragonborn Sub Race', $content);
 
-		$content = $this->gnomeSubRaceContainers();
+		$content = $this->radioButtonContainers(['forest-gnome', 'rock-gnome']);
 		$msg .= $html->fieldset('gnomeSubRaceSection', 'Gnome Sub Race', $content);
 
 		return $msg;
 	}
 
-	protected function raceElementContainers()
+	protected function radioButtonContainers($radioButtons)
 	{
+		if (gettype($radioButtons) !== 'array')
+		{
+			return 'Error: Not an array.';
+		}
+
 		$html = new HtmlElementCreator();
-		$msg = $html->radioButtonDiv('dwarf');
-		$msg .= $html->radioButtonDiv('elf');
-		$msg .= $html->radioButtonDiv('halfling');
-		$msg .= $html->radioButtonDiv('human');
-		$msg .= $html->radioButtonDiv('dragonborn');
-		$msg .= $html->radioButtonDiv('gnome');
-		$msg .= $html->radioButtonDiv('half-elf');
-		$msg .= $html->radioButtonDiv('half-orc');
-		$msg .= $html->radioButtonDiv('tiefling');
+		$msg = $html->radioButtonDiv('empty');
 
-		return $msg;
-	}
-
-	protected function dwarfSubRaceContainer()
-	{
-		$html = new HtmlElementCreator();
-		$msg = $html->radioButtonDiv('hill dwarf');
-		$msg .= $html->radioButtonDiv('mountain dwarf');
-
-		return $msg;
-	}
-
-	protected function elfSubRaceContainers()
-	{
-		$html = new HtmlElementCreator();
-		$msg = $html->radioButtonDiv('high-elf');
-		$msg .= $html->radioButtonDiv('wood-elf');
-		$msg .= $html->radioButtonDiv('dark-elf');
-
-		return $msg;
-	}
-
-	protected function halflingSubRaceContainers()
-	{
-		$html = new HtmlElementCreator();
-		$msg = $html->radioButtonDiv('lightfoot');
-		$msg .= $html->radioButtonDiv('stout');
-
-		return $msg;
-	}
-
-	protected function humanSubRaceContainers()
-	{
-		$html = new HtmlElementCreator();
-		$msg = $html->radioButtonDiv('standard');
-		$msg .= $html->radioButtonDiv('variant');
-
-		return $msg;
-	}
-
-	protected function dragonbornSubRaceContainers()
-	{
-		$html = new HtmlElementCreator();
-		$msg = $html->radioButtonDiv('black');
-		$msg .= $html->radioButtonDiv('blue');
-		$msg .= $html->radioButtonDiv('brass');
-		$msg .= $html->radioButtonDiv('bronze');
-		$msg .= $html->radioButtonDiv('copper');
-		$msg .= $html->radioButtonDiv('gold');
-		$msg .= $html->radioButtonDiv('green');
-		$msg .= $html->radioButtonDiv('red');
-		$msg .= $html->radioButtonDiv('silver');
-		$msg .= $html->radioButtonDiv('white');
-
-		return $msg;
-	}
-
-	protected function gnomeSubRaceContainers()
-	{
-		$html = new HtmlElementCreator();
-		$msg = $html->radioButtonDiv('forst-gnome');
-		$msg .= $html->radioButtonDiv('rock-gnome');
+		foreach ($radioButtons as $button)
+		{
+			$msg .= $html->radioButtonDiv($button);
+		}
 
 		return $msg;
 	}
