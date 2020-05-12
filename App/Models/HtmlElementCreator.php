@@ -3,6 +3,8 @@
 
 namespace App\Models;
 
+use Core\Strings\Strings;
+
 
 class HtmlElementCreator
 {
@@ -45,14 +47,15 @@ class HtmlElementCreator
 		return "<div class='$class'>$text</div>";
 	}
 
-	public function radioButtonDiv($id, $group)
+	public function radioButtonDiv($radioName, $group, $num)
 	{
+		$id = str_ireplace(' ', '_', strtolower($radioName));
 		$class = ($id === 'empty')? 'emptyS' : 's';
 		$class .= 'electorContainer';
 		$name = $group;
 		$selected = ($id === 'empty')? 'checked': '';
 
-		$content = $this->reverseInput('radio', $id, $name, $selected);
+		$content = $this->radioInput($radioName, $id, $name, $selected, $num);
 		$divId = $id . '-selector';
 		return "<div id='$divId' class='$class'>$content</div>";
 	}
@@ -70,15 +73,20 @@ class HtmlElementCreator
 		return $msg;
 	}
 
-	protected function reverseInput($type, $id, $name, $selected)
+	protected function radioInput($radioName, $id, $name, $selected, $num)
 	{
-		$labelText = str_ireplace('_', ' ', ucfirst($id));
-		$msg = "<input type='$type' id='$id' name='$name' value='$id'";
+		$labelText = ucfirst($radioName);
+		$msg = "<input type='radio' id='$id' name='$name' value='$id'";
 		if ($selected === 'checked')
 		{
 			$msg .= 'checked';
 		}
-		$msg .= ">";
+
+		$msg .= " class='radioButton ";
+
+		$newClass = Strings::convertToPascalCase($name);
+		$newClass = Strings::convertToCamelCase($newClass);
+		$msg .= "$newClass " . $newClass.$num . "'>";
 		$msg .= "<label for='$id'>$labelText</label>";
 
 		return $msg;
