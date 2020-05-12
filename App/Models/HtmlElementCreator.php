@@ -72,7 +72,7 @@ class HtmlElementCreator
 
 	protected function reverseInput($type, $id, $name, $selected)
 	{
-		$labelText = ucfirst($id);
+		$labelText = str_ireplace('_', ' ', ucfirst($id));
 		$msg = "<input type='$type' id='$id' name='$name' value='$id'";
 		if ($selected === 'checked')
 		{
