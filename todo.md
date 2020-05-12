@@ -73,3 +73,5 @@ This file is all about what we want to do.
    - [ ] populate gold based on background, with option to edit at dm discretion
    - [ ] assess additional form data
    - [ ] save form as printable character sheet
+### Future notes
+   - [ ] Add in seperated fields for dming and playing under the same account
