@@ -134,51 +134,51 @@ class PageBuilder
 		$content = $this->radioButtonContainers(['barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard'], 'class');
 		$msg = $html->fieldset('classMainSelection', 'Main Class Selection', $content);
 
-		$content = $this->radioButtonContainers(['berserker', 'totem-warrior'], 'barbarian-path');
+		$content = $this->radioButtonContainers(['berserker', 'totem_warrior'], 'barbarian-path');
 		$msg .= $html->fieldset('barbarian-path', 'Barbarian Primal Path', $content);
 
 		$content = $this->radioButtonContainers(['lore', 'valor'], 'bard-colleges');
 		$msg .= $html->fieldset('bard-colleges', 'Bard Colleges', $content);
-        
-        $content = $this->radioButtonContainers(['knowledge', 'life', 'light', 'nature', 'tempest', 'trickery', 'war'], 'cleric-domain');
+
+		$content = $this->radioButtonContainers(['knowledge', 'life', 'light', 'nature', 'tempest', 'trickery', 'war'], 'cleric-domain');
 		$msg .= $html->fieldset('cleric-domain', 'Cleric Divine Domain', $content);
-        
-        //need to differentiate between circle of land and it's subselections, and circle of the moon.
-        $content = $this->radioButtonContainers(['arctic land', 'coast land', 'desert land', 'forest land', 'grassland land', 'mountain land', 'swamp land', 'underdark land', 'moon'], 'druid-circles');
-		$msg .= $html->fieldset('druid-circles', 'Druidic Circle', $content);
-        
-        $content = $this->radioButtonContainers(['champion', 'battlemaster', 'eldritch knight'], 'fighter-archetypes');
+
+		//need to differentiate between circle of land and it's subselections, and circle of the moon.
+		$content = $this->radioButtonContainers(['arctic_land', 'coast_land', 'desert_land', 'forest_land', 'grassland_land', 'mountain_land', 'swamp_land', 'underdark_land', 'moon'], 'druid-circles');
+		$msg .= $html->fieldset('druid_circles', 'Druidic Circle', $content);
+
+		$content = $this->radioButtonContainers(['champion', 'battlemaster', 'eldritch_knight'], 'fighter-archetypes');
 		$msg .= $html->fieldset('fighter-archetypes', 'Fighter Archetype', $content);
-        
-        $content = $this->radioButtonContainers(['way of the open hand', 'way of shadow', 'way of the four elements'], 'monk-traditions');
+
+		$content = $this->radioButtonContainers(['way_of_the_open_hand', 'way_of_shadow', 'way_of_the_four elements'], 'monk-traditions');
 		$msg .= $html->fieldset('monk-traditions', 'Monastic Tradition', $content);
-        
-        $content = $this->radioButtonContainers(['oath of devotion', 'oath of the ancients', 'oath of vengence'], 'paladin-oaths');
-		$msg .= $html->fieldset('paladin-oaths', 'Paladin Sacred Oaths', $content);
-        
-        $content = $this->radioButtonContainers(['hunter', 'beast master'], 'ranger-archetypes');
+
+		$content = $this->radioButtonContainers(['oath_of_devotion', 'oath_of_the_ancients', 'oath_of_vengence'], 'paladin-oaths');
+		$msg .= $html->fieldset('paladin_oaths', 'Paladin Sacred Oaths', $content);
+
+		$content = $this->radioButtonContainers(['hunter', 'beast_master'], 'ranger-archetypes');
 		$msg .= $html->fieldset('ranger-archetypes', 'Ranger Archetype', $content);
-        
-        $content = $this->radioButtonContainers(['thief', 'assassin', 'arcane trickster'], 'rogue-archetypes');
+
+		$content = $this->radioButtonContainers(['thief', 'assassin', 'arcane_trickster'], 'rogue-archetypes');
 		$msg .= $html->fieldset('rogue-archetypes', 'Roguish Archetypes', $content);
-        
-        $content = $this->radioButtonContainers(['draconic bloodline', 'wild magic'], 'sorcerer-origins');
+
+		$content = $this->radioButtonContainers(['draconic_bloodline', 'wild magic'], 'sorcerer-origins');
 		$msg .= $html->fieldset('sorcerer-origins', 'Sorcerous Origin', $content);
-        
-        $content = $this->radioButtonContainers(['archfey', 'fiend', 'great old one'], 'warlock-patrons');
+
+		$content = $this->radioButtonContainers(['archfey', 'fiend', 'great_old_one'], 'warlock-patrons');
 		$msg .= $html->fieldset('warlock-patrons', 'Otherworldly Patron', $content);
-        
-        $content = $this->radioButtonContainers(['abjuration', 'conjuration', 'divination', 'enchantment', 'evocation', 'illusion', 'necromancy', 'transmutation'], 'wizard-schools');
+
+		$content = $this->radioButtonContainers(['abjuration', 'conjuration', 'divination', 'enchantment', 'evocation', 'illusion', 'necromancy', 'transmutation'], 'wizard-schools');
 		$msg .= $html->fieldset('wizard-schools', 'Arcane Traditions', $content);
 
 		return $msg;
 	}
-    
-    protected function backgroundFormContainerSection()
+
+	protected function backgroundFormContainerSection()
 	{
 		$html = new HtmlElementCreator();
-        
-		$content = $this->radioButtonContainers(['acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'guild artisan', 'hermit', 'noble', 'outlander', 'sage', 'sailor', 'soldier', 'urchin'], 'background');
+
+		$content = $this->radioButtonContainers(['acolyte', 'charlatan', 'criminal', 'entertainer', 'folk_hero', 'guild_artisan', 'hermit', 'noble', 'outlander', 'sage', 'sailor', 'soldier', 'urchin'], 'background');
 		$msg = $html->fieldset('backgroundMainSelection', 'Main Background Selection', $content);
 
 		return $msg;
