@@ -6,7 +6,7 @@ if (session_status() == PHP_SESSION_NONE)
 
 use Core\IsVerified;
 use App\Models\AccountInformation;
-use App\Models\PageBuilder;
+use App\Models\PageBuilder\AccountPageBuilder;
 
 $verify = new IsVerified();
 $verify->verify();
@@ -18,7 +18,7 @@ $row = mysqli_fetch_array($userInfo);
 $firstName = $row['first_name'];
 $fullName = $row['fullName'];
 
-$html = new PageBuilder();
+$html = new AccountPageBuilder();
 
 ?>
 
