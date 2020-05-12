@@ -239,5 +239,8 @@ fieldset {
     background-color: #FEFEFE;
     text-align: center;
     width: 100%;
+}
 
+.emptySelectorContainer {
+    /*display: none;*/
 }

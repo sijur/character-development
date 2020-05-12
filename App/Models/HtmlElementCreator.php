@@ -45,12 +45,14 @@ class HtmlElementCreator
 		return "<div class='$class'>$text</div>";
 	}
 
-	public function radioButtonDiv($id)
+	public function radioButtonDiv($id, $group)
 	{
-		$class = 'selectorContainer';
-		$name = 'race';
+		$class = ($id === 'empty')? 'emptyS' : 's';
+		$class .= 'electorContainer';
+		$name = $group;
+		$selected = ($id === 'empty')? 'checked': '';
 
-		$content = $this->reverseInput('radio', $id, $name);
+		$content = $this->reverseInput('radio', $id, $name, $selected);
 		$divId = $id . '-selector';
 		return "<div id='$divId' class='$class'>$content</div>";
 	}
@@ -68,11 +70,16 @@ class HtmlElementCreator
 		return $msg;
 	}
 
-	protected function reverseInput($type, $id, $name, $labelClass = '', $inputClass = '')
+	protected function reverseInput($type, $id, $name, $selected)
 	{
 		$labelText = ucfirst($id);
-		$msg = "<input type='$type' class='$inputClass' id='$id' name='$name' value='$id'>";
-		$msg .= "<label for='$id' class='$labelClass'>$labelText</label>";
+		$msg = "<input type='$type' id='$id' name='$name' value='$id'";
+		if ($selected === 'checked')
+		{
+			$msg .= 'checked';
+		}
+		$msg .= ">";
+		$msg .= "<label for='$id'>$labelText</label>";
 
 		return $msg;
 	}

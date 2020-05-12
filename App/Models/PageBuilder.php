@@ -95,6 +95,7 @@ class PageBuilder
 	{
 		$html = new HtmlElementCreator();
 		$content = $this->characterFormContainerSection();
+		$content .= $this->classFormContainerSection();
 		return $html->basicForm('characterForm', '', $content);
 	}
 
@@ -103,31 +104,46 @@ class PageBuilder
 		$html = new HtmlElementCreator();
 
 		// first section RACE
-		$content = $this->radioButtonContainers(['dwarf', 'elf', 'halfling', 'human', 'dragonborn', 'gnome', 'half-elf', 'half-orc', 'tiefling']);
+		$content = $this->radioButtonContainers(['dwarf', 'elf', 'halfling', 'human', 'dragonborn', 'gnome', 'half-elf', 'half-orc', 'tiefling'], 'race');
 		$msg = $html->fieldset('characterSection', 'Race', $content);
 
-		$content = $this->radioButtonContainers(['hill dwarf', 'mountain dwarf']);
+		$content = $this->radioButtonContainers(['hill dwarf', 'mountain dwarf'], 'dwarf-subrace');
 		$msg .= $html->fieldset('dwarfSubRaceSection', 'Dwarf Sub Race', $content);
 
-		$content = $this->radioButtonContainers(['high-elf', 'wood-elf', 'dark-elf']);
+		$content = $this->radioButtonContainers(['high-elf', 'wood-elf', 'dark-elf'], 'elf-subrace');
 		$msg .= $html->fieldset('elfSubRaceSection', 'Elf Sub Race', $content);
 
-		$content = $this->radioButtonContainers(['lightfoot', 'stout']);
+		$content = $this->radioButtonContainers(['lightfoot', 'stout'], 'halfling-subrace');
 		$msg .= $html->fieldset('halflingSubRaceSection', 'Halfling Sub Race', $content);
 
-		$content = $this->radioButtonContainers(['standard', 'variant']);
+		$content = $this->radioButtonContainers(['standard', 'variant'], 'human-subrace');
 		$msg .= $html->fieldset('humanSubRaceSection', 'Human Sub Race', $content);
 
-		$content = $this->radioButtonContainers(['black', 'blue', 'brass', 'bronze', 'copper', 'gold', 'green', 'red', 'silver', 'white']);
+		$content = $this->radioButtonContainers(['black', 'blue', 'brass', 'bronze', 'copper', 'gold', 'green', 'red', 'silver', 'white'], 'dragonborn-subrace');
 		$msg .= $html->fieldset('dragonbornSubRaceSection', 'Dragonborn Sub Race', $content);
 
-		$content = $this->radioButtonContainers(['forest-gnome', 'rock-gnome']);
+		$content = $this->radioButtonContainers(['forest-gnome', 'rock-gnome'], 'gnome-subrace');
 		$msg .= $html->fieldset('gnomeSubRaceSection', 'Gnome Sub Race', $content);
 
 		return $msg;
 	}
 
-	protected function radioButtonContainers($radioButtons)
+	protected function classFormContainerSection()
+	{
+		$html = new HtmlElementCreator();
+		$content = $this->radioButtonContainers(['barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard'], 'class');
+		$msg = $html->fieldset('classMainSelection', 'Main Class Selection', $content);
+
+		$content = $this->radioButtonContainers(['berserker', 'totem-warrior'], 'barbarian-path');
+		$msg .= $html->fieldset('barbarian-path', 'Barbarian Primal Path', $content);
+
+		$content = $this->radioButtonContainers(['lore', 'valor'], 'bard-colleges');
+		$msg .= $html->fieldset('bard-colleges', 'Bard Colleges', $content);
+
+		return $msg;
+	}
+
+	protected function radioButtonContainers($radioButtons, $group)
 	{
 		if (gettype($radioButtons) !== 'array')
 		{
@@ -135,11 +151,11 @@ class PageBuilder
 		}
 
 		$html = new HtmlElementCreator();
-		$msg = $html->radioButtonDiv('empty');
+		$msg = $html->radioButtonDiv('empty', $group);
 
 		foreach ($radioButtons as $button)
 		{
-			$msg .= $html->radioButtonDiv($button);
+			$msg .= $html->radioButtonDiv($button, $group);
 		}
 
 		return $msg;
