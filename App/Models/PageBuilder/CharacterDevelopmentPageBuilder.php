@@ -8,6 +8,7 @@ use App\Models\PageBuilder;
 use App\Models\PageBuilder\CharacterDevelopment\RaceChooser;
 use App\Models\PageBuilder\CharacterDevelopment\ClassChooser;
 use App\Models\PageBuilder\CharacterDevelopment\PersonalTraits;
+use App\Models\PageBuilder\CharacterDevelopment\NameChooser;
 
 
 class CharacterDevelopmentPageBuilder extends PageBuilder
@@ -32,10 +33,12 @@ class CharacterDevelopmentPageBuilder extends PageBuilder
 		$race = new RaceChooser();
 		$class = new ClassChooser();
 		$traits = new PersonalTraits();
+		$names = new NameChooser();
 
 		$content = $race->setup();
 		$content .= $class->setup();
 		$content .= $traits->setup();
+		$content .= $names->setup();
 
 		return $html->basicForm('characterForm', '', $content);
 	}

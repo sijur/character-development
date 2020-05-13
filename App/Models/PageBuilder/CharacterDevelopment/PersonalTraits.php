@@ -16,7 +16,10 @@ class PersonalTraits extends PageBuilder
 
 	public function setup()
 	{
-		return $this->backgroundFormContainerSection();
+		$msg = $this->backgroundFormContainerSection();
+		$msg .= $this->genderChoiceContainerSection();
+
+		return $msg;
 	}
 
 	protected function backgroundFormContainerSection()
@@ -25,6 +28,16 @@ class PersonalTraits extends PageBuilder
 
 		$content = $this->radioButtonContainers(['acolyte', 'charlatan', 'criminal', 'entertainer', 'folk hero', 'guild artisan', 'hermit', 'noble', 'outlander', 'sage', 'sailor', 'soldier', 'urchin'], 'background');
 		$msg = $html->fieldset('backgroundMainSelection', 'Main Background Selection', $content);
+
+		return $msg;
+	}
+
+	protected function genderChoiceContainerSection()
+	{
+		$html = new HtmlElementCreator();
+
+		$content = $this->radioButtonContainers(['male', 'female'], 'gender');
+		$msg = $html->fieldset('genderMainSelection', 'Gender Selection', $content);
 
 		return $msg;
 	}
