@@ -16,7 +16,7 @@ class ClassChooser extends PageBuilder
 
 	public function setup()
 	{
-		$this->classFormContainerSection();
+		return $this->classFormContainerSection();
 	}
 
 	protected function classFormContainerSection()

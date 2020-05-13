@@ -9,7 +9,14 @@ abstract class NameGenerator
 
 	public function __construct()
 	{
+
 		// is the character male or female
+		$gender = $this->whatIsGender();
+	}
+
+	protected function whatIsGender()
+	{
+		return;
 	}
 
 	protected static function render($name)

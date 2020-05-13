@@ -16,7 +16,7 @@ class PersonalTraits extends PageBuilder
 
 	public function setup()
 	{
-		$this->backgroundFormContainerSection();
+		return $this->backgroundFormContainerSection();
 	}
 
 	protected function backgroundFormContainerSection()

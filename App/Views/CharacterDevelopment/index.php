@@ -11,5 +11,5 @@ $verify = new IsVerified();
 $verify->verify();
 
 $html = new CharacterDevelopmentPageBuilder();
-$html->mainContainerCharacterCreation(); 
+$html->mainContainerCharacterCreation();
 ?>
