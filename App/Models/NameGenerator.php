@@ -9,17 +9,8 @@ abstract class NameGenerator
 	protected $part1 = ['A', 'Ada', 'Aki', 'Al', 'Ali', 'Alo', 'Ana', 'Ani', 'Ba', 'Be', 'Bo', 'Bra', 'Bro', 'Cha', 'Chi', 'Da', 'De', 'Do', 'Dra', 'Dro', 'Eki', 'Eko', 'Ele', 'Eli', 'Elo', 'Er', 'Ere', 'Eri', 'Ero', 'Fa', 'Fe', 'Fi', 'Fo', 'Fra', 'Gla', 'Gro', 'Ha', 'He', 'Hi', 'Illia', 'Ira', 'Ja', 'Jo', 'Ka', 'Ki', 'Kra', 'La', 'Le', 'Lo', 'Ma', 'Me', 'Mi', 'Mo', 'Na', 'Ne', 'No', 'O', 'Ol', 'Or', 'Pa', 'Pe', 'Pi', 'Po', 'Pra', 'Qua', 'Qui', 'Quo', 'Ra', 'Re', 'Ro', 'Sa', 'Sca', 'Sco', 'Se', 'Sha', 'She', 'Sho', 'So', 'Sta', 'Ste', 'Sti', 'Stu', 'Ta', 'Tha', 'The', 'Tho', 'Ti', 'To', 'Tra', 'Tri', 'Tru', 'Ul', 'Ur', 'Va', 'Vo', 'Wra', 'Xa', 'Xi', 'Zha', 'Zho'];
 	protected $part2 = ['bb', 'bl', 'bold', 'br', 'bran', 'can', 'carr', 'ch', 'cinn', 'ck', 'ckl', 'ckr', 'cks', 'dd', 'dell', 'dr', 'ds', 'fadd', 'fall', 'farr', 'ff', 'fill', 'fl', 'fr', 'genn', 'gg', 'gl', 'gord', 'gr', 'gs', 'h', 'hall', 'hark', 'hill', 'hork', 'jenn', 'kell', 'kill', 'kk', 'kl', 'klip', 'kr', 'krack', 'ladd', 'land', 'lark', 'ld', 'ldr', 'lind', 'll', 'ln', 'lord', 'ls', 'matt', 'mend', 'mm', 'ms', 'nd', 'nett', 'ng', 'nk', 'nn', 'nodd', 'ns', 'nt', 'part', 'pelt', 'pl', 'pp', 'ppr', 'pps', 'rand', 'rd', 'resh', 'rn', 'rp', 'rr', 'rush', 'salk', 'sass', 'sc', 'sh', 'sp', 'ss', 'st', 'tall', 'tend', 'told', 'v', 'vall', 'w', 'wall', 'wild', 'will', 'x', 'y', 'yang', 'yell', 'z', 'zenn'];
 	protected $part3 = ['a', 'ab', 'ac', 'ace', 'ach', 'ad', 'adle', 'af', 'ag', 'ah', 'ai', 'ak', 'aker', 'al', 'ale', 'am', 'an', 'and', 'ane', 'ar', 'ard', 'ark', 'art', 'ash', 'at', 'aht', 'ave', 'ea', 'eb', 'ec', 'ech', 'ed', 'af', 'eh', 'ek', 'el', 'elle', 'elton', 'em', 'en', 'end', 'ent', 'enton', 'ep', 'er', 'esh', 'ess', 'ett', 'ic', 'ich', 'id', 'if', 'ik', 'il', 'im', 'in', 'ion', 'ir', 'is', 'ish', 'it', 'ith', 'ive', 'ob', 'och', 'od', 'odin', 'oe', 'of', 'oh', 'ol', 'olen', 'omir', 'or', 'orb', 'org', 'ort', 'os', 'osh', 'ot', 'oth', 'ottie', 'ove', 'ow', 'ox', 'ud', 'ule', 'umber', 'un', 'under', 'undle', 'unt', 'ur', 'us', 'ust', 'ut', '', '', '', ''];
-	protected $numNames;
 
-	public function __construct()
-	{
-
-		// is the character male or female
-		$_SESSION['gender'] = 'male';
-		$this->getNumberOfNames();
-	}
-
-	abstract protected function getNumberOfNames();
+	public function __construct() {}
 
 	protected function randomNum()
 	{
@@ -28,7 +19,38 @@ abstract class NameGenerator
 
 	protected function getName()
 	{
-		return $this->part1[$this->randomNum()] . $this->part2[$this->randomNum()] . $this->part3[$this->randomNum()];
+		$curse = true;
+		$name = '';
+		while ($curse)
+		{
+			$name = $this->part1[$this->randomNum()] . $this->part2[$this->randomNum()] . $this->part3[$this->randomNum()];
+
+			if (!$this->checkName($name))
+			{
+				$this->getName();
+			}
+			else
+			{
+				$curse = false;
+			}
+		}
+
+		return $name;
+	}
+
+	protected function checkName($name)
+	{
+		$curse = ['ass', 'damm'];
+
+		foreach ($curse as $c)
+		{
+			if (strtolower($name) === $c)
+			{
+				return false;
+			}
+
+			return true;
+		}
 	}
 
 	protected function addNamesToArray($num)
@@ -39,9 +61,20 @@ abstract class NameGenerator
 			array_push($nameArray, $this->getName() . ' ' . $this->getName());
 		}
 
-		array_push($nameArray, 'Craig Jones');
+		$last = $this->getNormalLastName();
+
+		array_push($nameArray, 'Craig ' . $last);
 
 		return $nameArray;
+	}
+
+	private function getNormalLastName()
+	{
+		$normalNameArray = ['Smith', 'Jones'];
+		$min = 0;
+		$max = sizeof($normalNameArray) - 1;
+
+		return $normalNameArray[rand($min, $max)];
 	}
 
 	protected static function render($name)

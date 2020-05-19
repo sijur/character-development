@@ -15,11 +15,6 @@ class HumanName extends NameGenerator
 
 	public function setup()
 	{
-		return $this->addNamesToArray($this->numNames);
-	}
-
-	protected function getNumberOfNames()
-	{
-		$this->numNames = 10;
+//		return $this->addNamesToArray($this->numNames);
 	}
 }

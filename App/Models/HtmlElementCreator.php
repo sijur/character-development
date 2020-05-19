@@ -65,10 +65,11 @@ class HtmlElementCreator
 		return "<form name='$id' id='$id' action='$action' method='post'>$content</form>";
 	}
 
-	public function input($type, $id, $labelClass, $inputClass, $labelText)
+	public function input($type, $id, $labelClass, $inputClass, $labelText, $placeholder = '')
 	{
+		$placeholder = ($placeholder !== '')? $placeholder : $labelText;
 		$msg = "<label for='$id' class='$labelClass'>$labelText</label>";
-		$msg .= "<input type='$type' class='$inputClass' id='$id' name='$id'>";
+		$msg .= "<input type='$type' class='$inputClass' id='$id' name='$id' placeholder='$placeholder'>";
 
 		return $msg;
 	}

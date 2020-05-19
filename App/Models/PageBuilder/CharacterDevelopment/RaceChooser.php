@@ -36,7 +36,7 @@ class RaceChooser extends PageBuilder
 		$msg .= $html->fieldset('halflingSubRaceSection', 'Halfling Sub Race', $content);
 
 		$content = $this->radioButtonContainers(['standard', 'variant'], 'human-subrace');
-		$msg .= $html->fieldset('humanSubRaceSection', 'HumanName Sub Race', $content);
+		$msg .= $html->fieldset('humanSubRaceSection', 'Human Sub Race', $content);
 
 		$content = $this->radioButtonContainers(['black', 'blue', 'brass', 'bronze', 'copper', 'gold', 'green', 'red', 'silver', 'white'], 'dragonborn-subrace');
 		$msg .= $html->fieldset('dragonbornSubRaceSection', 'Dragonborn Sub Race', $content);

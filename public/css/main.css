@@ -130,6 +130,10 @@ h1.pageTitle {
     margin-bottom: 20px;
 }
 
+.half-width {
+    width: 46%;
+}
+
 .clearLinkContainer {
     position: relative;
     width: 30px;
