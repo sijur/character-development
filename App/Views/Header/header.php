@@ -19,14 +19,6 @@ $session->setup( 'start' );
 
 	<link rel="stylesheet" href="/css/main.css">
 	<base href="./">
-	<?php
-		if (session_status() == 2)
-		{
-			echo '<pre>';
-			var_dump(print_r($_SESSION, true));
-			echo '</pre>';
-		}
-	?>
 </head>
 <body>
 <?php if( isset($header) && ($header) ) { ?>
