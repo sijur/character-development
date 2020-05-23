@@ -1,3 +1,14 @@
+<?php
+
+use Core\Session;
+use App\Models\Navigation;
+
+
+$session = new Session();
+$session->setup( 'start' );
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +20,11 @@
 	<link rel="stylesheet" href="/css/main.css">
 	<base href="./">
 	<?php
-		if (session_status() == PHP_SESSION_NONE)
+		if (session_status() == 2)
 		{
-			session_start();
+			echo '<pre>';
+			var_dump(print_r($_SESSION, true));
+			echo '</pre>';
 		}
 	?>
 </head>
@@ -28,7 +41,7 @@
 	<div class="menu-area">
 		<div class="menu-container">
 			<?php
-			$nav = new \App\Models\Navigation();
+			$nav = new Navigation();
 			$nav->setup();
 			?>
 		</div>

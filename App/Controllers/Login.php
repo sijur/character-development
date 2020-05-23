@@ -6,6 +6,8 @@ namespace App\Controllers;
 use Core\Controller;
 use Core\View;
 use App\Models\LoginScript;
+use Core\Session;
+
 
 class Login extends Controller
 {
@@ -36,43 +38,60 @@ class Login extends Controller
 
 		if ($count == 1)
 		{
-			$_SESSION['loginError'] = false;
-			$_SESSION['loggedIn'] = true;
-			$_SESSION['userName'] = $user;
-			$_SESSION['loggedOut'] = false;
+			$session = new Session();
+
+			self::setCookie( session_id() );
+
+			$session->setup( 'set', 'loginError', false);
+			$session->setup( 'set', 'loggedIn', true );
+			$session->setup( 'set', 'userName', $user );
+			$session->setup( 'set', 'loggedOut', false );
+
 			$this->setUserInformation($userInformation);
 
 			header('location: /account');
 		}
 		else
 		{
-			$_SESSION['loginError'] = true;
-			$_SESSION['loggedIn'] = false;
+			$session = new Session();
+			$session->setup( 'set', 'loginError', true );
+			$session->setup( 'set', 'loggedIn', false );
+
 			header('location: /login');
 		}
+	}
+
+	protected static function setCookie( $id )
+	{
+		setcookie( 'PHPSESSID', $id, time() + (86400 * 30), '/' );
 	}
 
 	protected function setUserInformation($user)
 	{
 		while ($row = mysqli_fetch_array($user))
 		{
-			$_SESSION['userID'] = $row['id'];
+			$session = new Session();
+			$session->setup( 'set', 'userID', $row[ 'id' ] );
 		}
 	}
 
 	public function logOutAction()
 	{
-		if (session_status() == PHP_SESSION_NONE)
-		{
-			session_start();
-		}
-		unset($_SESSION['loggedIn']);
-		unset($_SESSION['loginError']);
-		unset($_SESSION['loggedOut']);
-		unset($_SESSION['userName']);
-		unset($_SESSION['firstName']);
-		unset($_SESSION['lastName']);
-		unset($_SESSION['email']);
+		$session = new Session();
+		$session->setup('start');
+		$session->setup( 'unset', 'loggedIn');
+		$session->setup( 'unset', 'loginError');
+		$session->setup( 'unset', 'loggedOut');
+		$session->setup( 'unset', 'userName');
+		$session->setup( 'unset', 'firstName');
+		$session->setup( 'unset', 'lastName');
+		$session->setup( 'unset', 'email');
+		$session->setup( 'unset', 'gender');
+		$session->setup( 'unset', 'userID');
+
+		$session->setup( 'destroy' );
+
+		setcookie( 'PHPSESSID', '', time() - 3600 );
 
 		header('location: /login');
 	}

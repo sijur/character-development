@@ -13,9 +13,6 @@ abstract class NameGenerator
 
 	public function __construct()
 	{
-
-		// is the character male or female
-		$_SESSION['gender'] = 'male';
 		$this->getNumberOfNames();
 	}
 
