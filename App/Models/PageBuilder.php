@@ -6,9 +6,11 @@ namespace App\Models;
 use App\Models\HtmlElementCreator;
 
 
-class PageBuilder
+abstract class PageBuilder
 {
 	public function __construct() {}
+
+	abstract public function getCharacterSheetLine();
 
 	public function h4($id, $name)
 	{

@@ -43,12 +43,37 @@ h1.pageTitle {
 }
 
 .mainContainer {
-    width: 1000px;
+    width: 100%;
     position: relative;
     padding: 20px;
     margin: 0 auto 30px;
     box-sizing: border-box;
     background-color: #FEFEFE;
+    display: flex;
+    flex-direction: row;
+    justify-content: normal;
+}
+
+.characterFormContainer {
+    width: 1000px;
+    max-width: 60%;
+}
+
+.sideBar {
+    width: 500px;
+    max-width: 15%;
+}
+
+.margin5PercentSide {
+    margin: 0 5%;
+}
+
+.sideBarLeft {
+    margin-left: 10px;
+}
+
+.sideBarRight {
+    margin-right: 10px;
 }
 
 .logo-container a {

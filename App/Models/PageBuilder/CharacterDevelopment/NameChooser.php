@@ -15,6 +15,16 @@ class NameChooser extends PageBuilder
 		parent::__construct();
 	}
 
+	public function getCharacterSheetLine()
+	{
+		$html = new HtmlElementCreator();
+
+		$content = $html->column( 'title', 'Name: ' );
+		$content .= $html->column( 'content', '' );
+
+		return $html->row( $content );
+	}
+
 	public function setup()
 	{
 		return $this->displayNames();

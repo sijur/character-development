@@ -14,6 +14,22 @@ class PersonalTraits extends PageBuilder
 		parent::__construct();
 	}
 
+	public function getCharacterSheetLine()
+	{
+		$html = new HtmlElementCreator();
+
+		$characterLine = [ 'Background: ', 'Gender: ' ];
+		$content = '';
+
+		foreach ( $characterLine as $c )
+		{
+			$content .= $html->column( 'title', $c );
+			$content .= $html->column( 'content', '' );
+		}
+
+		return $html->row( $content );
+	}
+
 	public function setup()
 	{
 		$msg = $this->backgroundFormContainerSection();

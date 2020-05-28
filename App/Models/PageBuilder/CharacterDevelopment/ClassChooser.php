@@ -14,6 +14,16 @@ class ClassChooser extends PageBuilder
 		parent::__construct();
 	}
 
+	public function getCharacterSheetLine()
+	{
+		$html = new HtmlElementCreator();
+
+		$content = $html->column( 'title', 'Class: ' );
+		$content .= $html->column( 'content', '' );
+
+		return $html->row( $content );
+	}
+
 	public function setup()
 	{
 		return $this->classFormContainerSection();

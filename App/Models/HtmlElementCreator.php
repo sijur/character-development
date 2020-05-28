@@ -10,7 +10,16 @@ class HtmlElementCreator
 {
 	public function __construct() {}
 
-	public function headerEle($level, $text, $id = '', $class = '')
+	// forms
+	public function basicForm( $name, $class, $action, $content )
+	{
+		return "<form class='$class' name='$name' id='$name' action='$action' method='post'>$content</form>";
+	}
+
+	// containers
+
+
+	public function headerEle( $level, $text, $id = '', $class = '' )
 	{
 		$lvl = '';
 		switch ($level)
@@ -37,35 +46,37 @@ class HtmlElementCreator
 		return $msg;
 	}
 
-	public function h4Ele($text, $id)
+	public function h4Ele( $text, $id, $echo = true )
 	{
-		self::render("<h4 id='$id'>$text</h4>");
+		$html = "<h4 id='$id'>$text</h4>";
+
+		if ( $echo )
+		{
+			self::render( $html );
+			exit();
+		}
+		return $html;
 	}
 
-	public function basicDiv($class, $text)
+	public function basicDiv( $class, $text )
 	{
 		return "<div class='$class'>$text</div>";
 	}
 
-	public function radioButtonDiv($radioName, $group, $num)
+	public function radioButtonDiv( $radioName, $group, $num )
 	{
-		$id = str_ireplace(' ', '_', strtolower($radioName));
-		$class = ($id === 'empty')? 'emptyS' : 's';
+		$id = str_ireplace( ' ', '_', strtolower( $radioName ) );
+		$class = ( $id === 'empty' )? 'emptyS' : 's';
 		$class .= 'electorContainer';
 		$name = $group;
-		$selected = ($id === 'empty')? 'checked': '';
+		$selected = ( $id === 'empty' )? 'checked': '';
 
-		$content = $this->radioInput($radioName, $id, $name, $selected, $num);
+		$content = $this->radioInput( $radioName, $id, $name, $selected, $num );
 		$divId = $id . '-selector';
 		return "<div id='$divId' class='$class'>$content</div>";
 	}
 
-	public function basicForm($id, $action, $content)
-	{
-		return "<form name='$id' id='$id' action='$action' method='post'>$content</form>";
-	}
-
-	public function input($type, $id, $labelClass, $inputClass, $labelText)
+	public function input( $type, $id, $labelClass, $inputClass, $labelText )
 	{
 		$msg = "<label for='$id' class='$labelClass'>$labelText</label>";
 		$msg .= "<input type='$type' class='$inputClass' id='$id' name='$id'>";
@@ -73,7 +84,7 @@ class HtmlElementCreator
 		return $msg;
 	}
 
-	protected function radioInput($radioName, $id, $name, $selected, $num)
+	protected function radioInput( $radioName, $id, $name, $selected, $num )
 	{
 		$labelText = ucfirst($radioName);
 		$msg = "<input type='radio' id='$id' name='$name' value='$id'";
@@ -84,48 +95,72 @@ class HtmlElementCreator
 
 		$msg .= " class='radioButton ";
 
-		$newClass = Strings::convertToPascalCase($name);
-		$newClass = Strings::convertToCamelCase($newClass);
+		$newClass = Strings::convertToPascalCase( $name );
+		$newClass = Strings::convertToCamelCase( $newClass );
 		$msg .= "$newClass " . $newClass.$num . "'>";
 		$msg .= "<label for='$id'>$labelText</label>";
 
 		return $msg;
 	}
 
-	public function basicLink($href, $class, $text)
+	public function basicLink( $href, $class, $msg, $target = '' )
 	{
-		return "<a href='$href' class='$class'>$text</a>";
+		$href = "<a href='$href' class='$class'";
+		$href .= ( $target )? " target='$target'>" : ">";
+		$href .= "$msg</a>";
+
+		return $href;
 	}
 
-	public function button($id, $class, $text)
+	public function button( $id, $class, $text )
 	{
 		return "<button id='$id' class='$class'>$text</button>";
 	}
 
-	public function section()
+	public function section( $type = '', $attributes = [] )
 	{
-		return "<div class='section'>";
+		if ( $type == 'div' )
+		{
+			return "<div class='section'>";
+		}
+
+		$html = "<section ";
+
+		if ( sizeof( $attributes ) > 0 )
+		{
+			foreach ( $attributes as $key => $value )
+			{
+				$html .= $key . "='" . $value . "'";
+			}
+		}
+
+		$html .= ">";
+
+		return $html;
 	}
 
-	public function table()
+	public function table( $html )
 	{
-		return "<div class='table'>";
+		return "<div class='table'>$html</div>";
 	}
 
-	public function row()
+	public function row( $html )
 	{
-		return "<div class='row'>";
+		return "<div class='row'>$html</div>";
 	}
 
-	public function column($class, $text)
+	public function column( $class, $id = null, $text = '' )
 	{
-		return "<div class='col $class'>$text</div>";
+		$html = "<div class='col $class'";
+		$html .= ( $id )? " id='$id'>" : ">";
+		$html .= ( $text )? "$text</div>" : "</div>";
+		return $html;
 	}
 
-	public function closingDiv($num)
+	public function closingDiv( $num )
 	{
 		$msg = '';
-		while ($num > 0)
+		while ( $num > 0 )
 		{
 			$msg .= '</div>';
 			$num--;
@@ -133,7 +168,7 @@ class HtmlElementCreator
 		return $msg;
 	}
 
-	public function fieldset($class, $legend, $html)
+	public function fieldset( $class, $legend, $html )
 	{
 		$msg = "<fieldset class='$class'>";
 		$msg .= "<legend>$legend</legend>";
@@ -142,8 +177,18 @@ class HtmlElementCreator
 		return $msg;
 	}
 
-	protected static function render($msg)
+	public function unorderedList( $class, $html )
 	{
-			echo $msg;
+		return "<ul class='$class'>$html</ul>";
+	}
+
+	public function listLinkItem( $href, $class, $html )
+	{
+		return "<li><a href='$href' class='$class'>$html</a></li>";
+	}
+
+	protected static function render( $msg )
+	{
+		echo $msg;
 	}
 }
