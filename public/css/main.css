@@ -111,10 +111,14 @@ h1.pageTitle {
     line-height: 25px;
 }
 
+.spanButton.active,
 .spanButton:hover {
-    cursor: pointer;
     background-color: darkslateblue;
     color: #FFFFFF;
+}
+
+.spanButton:hover {
+    cursor: pointer;
 }
 
 .sectionButton {

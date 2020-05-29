@@ -47,10 +47,22 @@ var main =
 	{
 		$( '.spanButton' ).on( 'click', function()
 		{
-			id = this.id.split( '_' );
+			if ( $( '.spanButton' ).hasClass( 'active' ) )
+			{
+				$( '.spanButton' ).removeClass( 'active' );
+			}
 
+			$( this ).addClass( 'active' );
+
+			var id = this.id.split( '_' );
 			$( '#' + id[ 1 ] ).prop( "checked", true );
+
 		});
+	},
+
+	nextSection: function()
+	{
+		$( '' )
 	}
 };
 

@@ -44,7 +44,8 @@ abstract class PageBuilder
 
 		$msg = $spanButtons . $radioOptions;
 
-		$msg .= $html->button( $group . '_button', 'sectionButton', 'Next' );
+
+		$msg .= $html->button( 'next_button', 'sectionButton', 'Next', $group );
 
 		return $msg;
 	}

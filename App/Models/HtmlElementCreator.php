@@ -119,9 +119,13 @@ class HtmlElementCreator
 		return $href;
 	}
 
-	public function button( $id, $class, $text )
+	public function button( $id, $class, $text, $data = '' )
 	{
-		return "<button id='$id' class='$class'>$text</button>";
+		$button = "<button id='$id' class='$class'";
+		$button .= ( $data )? " data-group='$data'>" : ">";
+		$button .= $text . "</button>";
+
+		return $button;
 	}
 
 	public function section( $type = '', $attributes = [] )
