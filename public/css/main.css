@@ -76,6 +76,67 @@ h1.pageTitle {
     margin-right: 10px;
 }
 
+.sectionList {
+    border-left: 1px black solid;
+}
+
+.sectionList li:before {
+    content: '-';
+    padding-right: 10px;
+}
+
+.sectionList li {
+    list-style-position: inside;
+    list-style-type: none;
+}
+
+.sectionList li a:link,
+.sectionList li a:visited {
+    text-decoration: none;
+    color: #000000;
+}
+
+.sectionList li a:hover,
+.sectionList li a:active {
+    color: darkslateblue;
+}
+
+.spanButton {
+    height: 25px;
+    width: 100px;
+    border: 1px black solid;
+    display: inline-table;
+    text-align: center;
+    margin: 5px 20px;
+    line-height: 25px;
+}
+
+.spanButton:hover {
+    cursor: pointer;
+    background-color: darkslateblue;
+    color: #FFFFFF;
+}
+
+.sectionButton {
+    width: 100px;
+    height: 35px;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
+
+.sectionButton:hover {
+    cursor: pointer;
+}
+
+.emptySelectorContainer {
+    display: none;
+}
+
+.selectorContainer {
+    /*display: none;*/
+}
+
 .logo-container a {
     width: 100%;
     position: relative;
@@ -241,6 +302,9 @@ fieldset {
     height: 100%;
     width: 100%;
     display: block;
+    position: relative;
+    padding: 15px 10px 75px 10px;
+    box-sizing: border-box;
 }
 
 .table {

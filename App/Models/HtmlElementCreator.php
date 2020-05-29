@@ -76,6 +76,13 @@ class HtmlElementCreator
 		return "<div id='$divId' class='$class'>$content</div>";
 	}
 
+	public function spanButtons( $id, $text )
+	{
+		$id = str_ireplace( ' ', '_', strtolower( $id ) );
+		$text = ucfirst( $text );
+		return "<span class='spanButton' id='$id'>$text</span>";
+	}
+
 	public function input( $type, $id, $labelClass, $inputClass, $labelText )
 	{
 		$msg = "<label for='$id' class='$labelClass'>$labelText</label>";

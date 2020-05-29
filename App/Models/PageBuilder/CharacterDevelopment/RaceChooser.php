@@ -14,6 +14,11 @@ class RaceChooser extends PageBuilder
 		parent::__construct();
 	}
 
+	public function setup()
+	{
+		return $this->characterFormContainerSection();
+	}
+
 	public function getCharacterSheetLine()
 	{
 		$html = new HtmlElementCreator();
@@ -24,11 +29,6 @@ class RaceChooser extends PageBuilder
 		$col .= $html->column( 'content', 'raceContent' );
 
 		return $html->row( $col );
-	}
-
-	public function setup()
-	{
-		return $this->characterFormContainerSection();
 	}
 
 	protected function characterFormContainerSection()

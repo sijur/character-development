@@ -60,7 +60,7 @@ class CharacterDevelopmentPageBuilder
 //		$msg .= $traits->setup();
 //		$msg .= $names->setup();
 
-		return $html->basicForm('characterForm', 'mainForm', '', $msg);
+		return $html->basicForm( 'characterForm', 'mainForm', '', $msg );
 	}
 
 	protected function characterQuickView()

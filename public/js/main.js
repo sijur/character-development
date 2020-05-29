@@ -41,12 +41,23 @@ var main =
 				}
 			});
 		});
+	},
+
+	spanToInput: function()
+	{
+		$( '.spanButton' ).on( 'click', function()
+		{
+			id = this.id.split( '_' );
+
+			$( '#' + id[ 1 ] ).prop( "checked", true );
+		});
 	}
 };
 
 jQuery(function($)
 {
-	main.chooseRace();
+	main.spanToInput();
+	// main.chooseRace();
 	// main.submitForm();
 });
 
