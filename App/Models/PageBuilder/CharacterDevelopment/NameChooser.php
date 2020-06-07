@@ -8,7 +8,7 @@ use App\Models\PageBuilder;
 use App\Models\NameGenerator\HumanName;
 
 
-class NameChooser extends PageBuilder
+class NameChooser extends PageBuilder implements SectionInterface
 {
 	public function __construct()
 	{

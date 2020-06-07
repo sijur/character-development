@@ -7,7 +7,7 @@ use App\Models\HtmlElementCreator;
 use App\Models\PageBuilder;
 
 
-class ClassChooser extends PageBuilder
+class ClassChooser extends PageBuilder implements SectionInterface
 {
 	public function __construct()
 	{

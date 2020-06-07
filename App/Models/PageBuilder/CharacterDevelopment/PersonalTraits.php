@@ -7,7 +7,7 @@ namespace App\Models\PageBuilder\CharacterDevelopment;
 use App\Models\HtmlElementCreator;
 use App\Models\PageBuilder;
 
-class PersonalTraits extends PageBuilder
+class PersonalTraits extends PageBuilder implements SectionInterface
 {
 	public function __construct()
 	{

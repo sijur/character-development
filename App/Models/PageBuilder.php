@@ -5,19 +5,16 @@ namespace App\Models;
 
 use App\Models\HtmlElementCreator;
 
-
-abstract class PageBuilder
+class PageBuilder
 {
 	public function __construct() {}
 
-	abstract public function getCharacterSheetLine();
-
 	public function h4($id, $name)
 	{
+		$html = new HtmlElementCreator();
 		$h4Text = "Thank you for logging in $name";
 
-		$html = new HtmlElementCreator();
-		$html->h4Ele($h4Text, $id);
+		$html->h4Ele( $h4Text, $id );
 	}
 
 	protected function radioButtonContainers( $radioButtons, $group )
@@ -52,6 +49,9 @@ abstract class PageBuilder
 
 	protected static function render( $msg )
 	{
-		echo $msg;
+		if ( $msg )
+		{
+			echo $msg;
+		}
 	}
 }

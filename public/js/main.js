@@ -62,13 +62,19 @@ var main =
 
 	nextSection: function()
 	{
-		$( '' )
+		$( '#next_button' ).on( 'click', function(e)
+		{
+			e.preventDefault();
+			var group = $( this ).data( 'group' );
+			var checkedValue = $( "input[name='" + group + "']:checked" ).val();
+		});
 	}
 };
 
 jQuery(function($)
 {
 	main.spanToInput();
+	main.nextSection();
 	// main.chooseRace();
 	// main.submitForm();
 });

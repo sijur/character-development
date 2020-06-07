@@ -5,9 +5,10 @@ namespace App\Models\PageBuilder\CharacterDevelopment;
 
 use App\Models\HtmlElementCreator;
 use \App\Models\PageBuilder;
+use App\Models\PageBuilder\CharacterDevelopment\SectionInterface;
 
 
-class RaceChooser extends PageBuilder
+class RaceChooser extends PageBuilder implements SectionInterface
 {
 	public function __construct()
 	{

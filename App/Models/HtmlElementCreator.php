@@ -53,7 +53,6 @@ class HtmlElementCreator
 		if ( $echo )
 		{
 			self::render( $html );
-			exit();
 		}
 		return $html;
 	}
@@ -128,11 +127,11 @@ class HtmlElementCreator
 		return $button;
 	}
 
-	public function section( $type = '', $attributes = [] )
+	public function section( $text, $type = '', $attributes = [] )
 	{
 		if ( $type == 'div' )
 		{
-			return "<div class='section'>";
+			return "<div class='section'>$text</div>";
 		}
 
 		$html = "<section ";
@@ -145,7 +144,7 @@ class HtmlElementCreator
 			}
 		}
 
-		$html .= ">";
+		$html .= ">$text</section>";
 
 		return $html;
 	}

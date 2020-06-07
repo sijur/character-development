@@ -4,16 +4,18 @@
 namespace App\Models\PageBuilder;
 
 use App\Models\HtmlElementCreator;
+use App\Models\PageBuilder;
 use App\Models\PageBuilder\CharacterDevelopment\RaceChooser;
 use App\Models\PageBuilder\CharacterDevelopment\ClassChooser;
 use App\Models\PageBuilder\CharacterDevelopment\PersonalTraits;
 use App\Models\PageBuilder\CharacterDevelopment\NameChooser;
 
 
-class CharacterDevelopmentPageBuilder
+class CharacterDevelopmentPageBuilder extends PageBuilder
 {
 	public function __construct()
 	{
+		parent::__construct();
 	}
 
 	public function mainContainerCharacterCreation()
@@ -98,13 +100,5 @@ class CharacterDevelopmentPageBuilder
 		}
 
 		return $html->unorderedList( 'sectionList', $content );
-	}
-
-	private function render( $msg )
-	{
-		if ( $msg )
-		{
-			echo $msg;
-		}
 	}
 }

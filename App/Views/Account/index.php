@@ -1,8 +1,4 @@
 <?php
-if (session_status() == PHP_SESSION_NONE)
-{
-	session_start();
-}
 
 use Core\IsVerified;
 use App\Models\AccountInformation;
@@ -22,15 +18,15 @@ $html = new AccountPageBuilder();
 
 ?>
 
-<div class="mainContainer">
+<div class="mainContainer accountPage">
 	<?php
-		$html->h4('loginTitle', $firstName);
-		$html->userSection($fullName, $row['user'], $row['email_address'], $row['bio']);
+		$html->h4( 'loginTitle', $firstName );
+		$html->userSection( $fullName, $row[ 'user' ], $row[ 'email_address' ], $row[ 'bio' ] );
 	?>
 
-	<div class="section">
+	<section>
 		<div class="section-title">Games</div>
-	</div>
+	</section>
 </div>
 
 
