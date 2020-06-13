@@ -57,9 +57,9 @@ class HtmlElementCreator
 		return $html;
 	}
 
-	public function basicDiv( $class, $text )
+	public function basicDiv( $class, $html )
 	{
-		return "<div class='$class'>$text</div>";
+		return "<div class='$class'>$html</div>";
 	}
 
 	public function radioButtonDiv( $radioName, $group, $num )

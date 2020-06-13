@@ -12,22 +12,23 @@ $userInfo = $accountInfo->setup();
 $row = mysqli_fetch_array($userInfo);
 
 $firstName = $row['first_name'];
-$fullName = $row['fullName'];
+$fullName = $row['full_name'];
 
 $html = new AccountPageBuilder();
+$html->mainContainerAccountCreation( $row );
 
 ?>
 
-<div class="mainContainer accountPage">
-	<?php
-		$html->h4( 'loginTitle', $firstName );
-		$html->userSection( $fullName, $row[ 'user' ], $row[ 'email_address' ], $row[ 'bio' ] );
-	?>
-
-	<section>
-		<div class="section-title">Games</div>
-	</section>
-</div>
+<!--<div class="mainContainer accountPage">-->
+<!--	--><?php
+//		$html->h4( 'loginTitle', $firstName );
+//		$html->userSection( $fullName, $row[ 'user' ], $row[ 'email_address' ], $row[ 'bio' ] );
+//	?>
+<!---->
+<!--	<section>-->
+<!--		<div class="section-title">Games</div>-->
+<!--	</section>-->
+<!--</div>-->
 
 
 <script>

@@ -45,7 +45,7 @@ class CharacterDevelopmentPageBuilder extends PageBuilder
 
 		$content = $this->characterCreationForm();
 
-		$class = 'characterFormContainer margin5PercentSide';
+		$class = 'characterFormContainer middleContainer margin5PercentSide';
 		return $html->basicDiv( $class, $content );
 	}
 

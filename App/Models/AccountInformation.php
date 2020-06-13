@@ -31,7 +31,7 @@ class AccountInformation
 				SELECT
 					user_name AS 'user',
 				    first_name,
-				    concat(first_name, ' ', last_name) AS 'fullName',
+				    concat(first_name, ' ', last_name) AS 'full_name',
 				    bio,
 				    email_address,
 				    is_dm,

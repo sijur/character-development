@@ -14,15 +14,55 @@ class AccountPageBuilder extends PageBuilder
 		parent::__construct();
 	}
 
-	public function userSection($fullName, $userName, $emailAddress, $bio)
+	public function mainContainerAccountCreation( $user )
+	{
+		$html = new HtmlElementCreator();
+
+		$msg = $this->h4( 'loginTitle', $user[ 'first_name' ] );
+		$content = $this->leftSideBar();
+		$content .= $this->accountContainer( $user );
+		$content .= $this->rightSideBar();
+
+		$msg .= $html->basicDiv( 'mainContainer accountPage', $content );
+
+		self::render( $msg );
+	}
+
+	protected function accountContainer( $user )
+	{
+		$html = new HtmlElementCreator();
+
+		$class = 'accountContainer middleContainer margin5PercentSide';
+		$content = $this->accountContentSections( $user );
+		return $html->basicDiv( $class, $content );
+	}
+
+	protected function accountContentSections( $user )
+	{
+		$html = new HtmlElementCreator();
+
+		$content = $this->userSection(
+			$user[ 'full_name' ],
+			$user[ 'user' ],
+			$user[ 'email_address' ],
+			$user[ 'bio' ]
+		);
+
+		$innerSection = $html->basicDiv( 'section-title', 'Games' );
+		$content .= $html->section( $innerSection );
+
+		return $content;
+	}
+
+	protected function userSection($fullName, $userName, $emailAddress, $bio)
 	{
 		$html = new HtmlElementCreator();
 
 		$content = $html->basicDiv( 'section-title', 'User Information' );
 		$content .= $this->tableElement( $fullName, $userName, $emailAddress, $bio );
 
-		$msg = $html->section( $content );
-		self::render( $msg );
+		return $html->section( $content );
+
 	}
 
 	protected function tableElement( $fullName, $userName, $emailAddress, $bio )

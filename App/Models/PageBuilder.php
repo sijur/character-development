@@ -14,7 +14,7 @@ class PageBuilder
 		$html = new HtmlElementCreator();
 		$h4Text = "Thank you for logging in $name";
 
-		$html->h4Ele( $h4Text, $id );
+		return $html->h4Ele( $h4Text, $id, false);
 	}
 
 	protected function radioButtonContainers( $radioButtons, $group )
@@ -45,6 +45,20 @@ class PageBuilder
 		$msg .= $html->button( 'next_button', 'sectionButton', 'Next', $group );
 
 		return $msg;
+	}
+
+	protected function leftSideBar()
+	{
+		$html = new HtmlElementCreator();
+
+		return $html->basicDiv( 'sideBar sideBarLeft', '' );
+	}
+
+	protected function rightSideBar()
+	{
+		$html = new HtmlElementCreator();
+
+		return $html->basicDiv( 'sideBar sideBarRight', '' );
 	}
 
 	protected static function render( $msg )
