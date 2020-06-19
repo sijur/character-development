@@ -74,11 +74,14 @@ class CharacterDevelopmentPageBuilder extends PageBuilder
 //		$traits = new PersonalTraits();
 //		$names = new NameChooser();
 
-		$msg = $html->h4Ele( 'Character quick view', 'character-sheet', false );
-		$msg .= $race->getCharacterSheetLine();
-//		$msg .= $class->getCharacterSheetLine();
-//		$msg .= $traits->getCharacterSheetLine();
-//		$msg .= $names->getCharacterSheetLine();
+		$msg = $html->caption( 'Character quick view' );
+
+		$row = $race->getCharacterSheetLine();
+//		$row .= $class->getCharacterSheetLine();
+//		$row .= $traits->getCharacterSheetLine();
+//		$row .= $names->getCharacterSheetLine();
+
+		$msg .= $html->rowGroup( $row );
 
 		$content = $html->table( $msg );
 

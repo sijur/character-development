@@ -19,17 +19,6 @@ $html->mainContainerAccountCreation( $row );
 
 ?>
 
-<!--<div class="mainContainer accountPage">-->
-<!--	--><?php
-//		$html->h4( 'loginTitle', $firstName );
-//		$html->userSection( $fullName, $row[ 'user' ], $row[ 'email_address' ], $row[ 'bio' ] );
-//	?>
-<!---->
-<!--	<section>-->
-<!--		<div class="section-title">Games</div>-->
-<!--	</section>-->
-<!--</div>-->
-
 
 <script>
 	var title = document.getElementById('loginTitle');

@@ -62,16 +62,41 @@ var main =
 
 	nextSection: function()
 	{
+		var self = this;
+
 		$( '#next_button' ).on( 'click', function(e)
 		{
+			// prevent default action
 			e.preventDefault();
+
+			// grab the group that we're working on currently.
 			var group = $( this ).data( 'group' );
+
+			// get the value that is chosen.
 			var checkedValue = $( "input[name='" + group + "']:checked" ).val();
+
+			// store the value in the session.
+			sessionStorage.setItem( group, checkedValue );
+
+			// set the value in the character quick view.
+			$( '#' + group + 'Content' ).html( sessionStorage.getItem( group ) );
+
+			// clear the current section.
+			self.clearSection( group );
+
+			// create the link in the breadcrumb section and activate it.
+
+			// get the next section and display it.
 		});
+	},
+
+	clearSection: function( section )
+	{
+		console.log(section);
 	}
 };
 
-jQuery(function($)
+jQuery(function()
 {
 	main.spanToInput();
 	main.nextSection();

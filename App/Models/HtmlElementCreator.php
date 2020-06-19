@@ -154,6 +154,11 @@ class HtmlElementCreator
 		return "<div class='table'>$html</div>";
 	}
 
+	public function rowGroup( $html )
+	{
+		return "<div class='row-group'>$html</div>";
+	}
+
 	public function row( $html )
 	{
 		return "<div class='row'>$html</div>";
@@ -161,7 +166,17 @@ class HtmlElementCreator
 
 	public function column( $class, $id = null, $text = '' )
 	{
-		$html = "<div class='col $class'";
+		$html = "<div class='col";
+		$html .= ( $class )? " $class'" : "'";
+		$html .= ( $id )? " id='$id'>" : ">";
+		$html .= ( $text )? "$text</div>" : "</div>";
+		return $html;
+	}
+
+	public function caption( $text, $class = '', $id = null )
+	{
+		$html = "<div class='caption";
+		$html .= ( $class )? " $class'" : "'";
 		$html .= ( $id )? " id='$id'>" : ">";
 		$html .= ( $text )? "$text</div>" : "</div>";
 		return $html;
@@ -178,9 +193,9 @@ class HtmlElementCreator
 		return $msg;
 	}
 
-	public function fieldset( $class, $legend, $html )
+	public function fieldset( $id, $class, $legend, $html )
 	{
-		$msg = "<fieldset class='$class'>";
+		$msg = "<fieldset class='$class' id='$id'>";
 		$msg .= "<legend>$legend</legend>";
 		$msg .= $html;
 		$msg .= "</fieldset>";
