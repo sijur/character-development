@@ -7,14 +7,14 @@ namespace App\Controllers;
 use Core\Controller;
 use Core\View;
 
-class CharacterDevelopment extends Controller
+class CharacterDevelopment extends Controller implements PageInterface
 {
 	public function getTitle()
 	{
 		return 'Character Development';
 	}
 
-	protected function displayHeader()
+	public function displayHeader()
 	{
 		return true;
 	}

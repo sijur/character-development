@@ -9,14 +9,14 @@ use App\Models\LoginScript;
 use Core\Session;
 
 
-class Login extends Controller
+class Login extends Controller implements PageInterface
 {
-	protected function getTitle()
+	public function getTitle()
 	{
 		return 'Login';
 	}
 
-	protected function displayHeader()
+	public function displayHeader()
 	{
 		return false;
 	}

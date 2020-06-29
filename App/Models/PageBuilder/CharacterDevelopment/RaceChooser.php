@@ -5,14 +5,16 @@ namespace App\Models\PageBuilder\CharacterDevelopment;
 
 use App\Models\HtmlElementCreator;
 use \App\Models\PageBuilder;
-use App\Models\PageBuilder\CharacterDevelopment\SectionInterface;
 
 
 class RaceChooser extends PageBuilder implements SectionInterface
 {
+	protected $currentRace;
+
 	public function __construct()
 	{
 		parent::__construct();
+		$this->currentRace = $_SESSION[ 'race' ] ?? '';
 	}
 
 	public function setup()
@@ -24,10 +26,12 @@ class RaceChooser extends PageBuilder implements SectionInterface
 	{
 		$html = new HtmlElementCreator();
 
+		$currRace = $this->currentRace ?? '';
+
 		$content = 'Race: ';
 
 		$col = $html->column( 'title', '', $content );
-		$col .= $html->column( 'content', 'raceContent' );
+		$col .= $html->column( 'content', 'raceContent', $currRace );
 
 		return $html->row( $col );
 	}

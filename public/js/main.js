@@ -76,23 +76,68 @@ var main =
 			var checkedValue = $( "input[name='" + group + "']:checked" ).val();
 
 			// store the value in the session.
-			sessionStorage.setItem( group, checkedValue );
+			sessionStorage.setItem( group, self.ucFirst( checkedValue ) );
+
+			var storedValue = sessionStorage.getItem( group );
+
+			self.serverSideStoreSessionValue( { 'key': group, 'value': storedValue } );
 
 			// set the value in the character quick view.
-			$( '#' + group + 'Content' ).html( sessionStorage.getItem( group ) );
+			$( '#' + group + 'Content' ).html( storedValue );
 
 			// clear the current section.
 			self.clearSection( group );
 
 			// create the link in the breadcrumb section and activate it.
+			self.breadcrumbLink( group );
 
 			// get the next section and display it.
 		});
 	},
 
+	ucFirst: function( word )
+	{
+		return word.charAt( 0 ).toLocaleUpperCase() + word.slice( 1 );
+	},
+
+	serverSideStoreSessionValue: function( values )
+	{
+		// _s.ajax({
+		// 	type: 'POST',
+		// 	url: '/login/verify',
+		// 	data: {
+		// 		username: $('#userName').val(),
+		// 		password: $('#password').val()
+		// 	},
+		// 	callBack: function( result )
+		// 	{
+		// 		console.log(result);
+		// 	}
+		// });
+
+		var url = '/session/storage&ajax=true';
+		_s.ajax({
+			type: 'POST',
+			url: url,
+			data: {
+				key: values[ 'key' ],
+				value: values[ 'value' ]
+			},
+			callBack: function( result )
+			{
+				console.log( result );
+			}
+		});
+	},
+
+	breadcrumbLink: function ( link )
+	{
+
+	},
+
 	clearSection: function( section )
 	{
-		console.log(section);
+		$( '#' + section + '-section' ).css('display', 'none');
 	}
 };
 

@@ -95,15 +95,20 @@ h1.pageTitle {
     list-style-type: none;
 }
 
-.sectionList li a:link,
-.sectionList li a:visited {
+.sectionList li.inactive a:link,
+.sectionList li.inactive a:visited {
+    color: #656565;
+}
+
+.sectionList li.active a:link,
+.sectionList li.active a:visited {
     text-decoration: none;
     color: #000000;
 }
 
-.sectionList li a:hover,
-.sectionList li a:active {
-    color: darkslateblue;
+.sectionList li.active a:hover,
+.sectionList li.active a:active {
+    color: #483d8b;
 }
 
 .spanButton {
@@ -359,6 +364,7 @@ fieldset {
     width: 100%;
 }
 
-.emptySelectorContainer {
-    /*display: none;*/
+.emptySelectorContainer,
+.selectorContainer {
+    display: none;
 }

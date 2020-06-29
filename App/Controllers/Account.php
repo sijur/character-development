@@ -5,14 +5,14 @@ namespace App\Controllers;
 use Core\Controller;
 use Core\View;
 
-class Account extends Controller
+class Account extends Controller implements PageInterface
 {
-	protected function getTitle()
+	public function getTitle()
 	{
 		return 'Account';
 	}
 
-	protected function displayHeader()
+	public function displayHeader()
 	{
 		return true;
 	}

@@ -209,7 +209,8 @@ class HtmlElementCreator
 
 	public function listLinkItem( $href, $class, $html )
 	{
-		return "<li><a href='$href' class='$class'>$html</a></li>";
+		$id = str_ireplace(' ', '_', strtolower( $html ) );
+		return "<li><a href='$href' class='inactive $class' data-type='$id' id='" . $id . "-link-section'>$html</a></li>";
 	}
 
 	protected static function render( $msg )

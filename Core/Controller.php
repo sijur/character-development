@@ -9,7 +9,7 @@
 namespace Core;
 
 
-abstract class Controller
+class Controller
 {
 	/**
 	 * Parameters from the matched route
@@ -71,9 +71,9 @@ abstract class Controller
 		}
 	}
 
-	abstract protected function getTitle();
+	public function getTitle() {}
 
-	abstract protected function displayHeader();
+	public function displayHeader() {}
 
 	protected function header()
 	{

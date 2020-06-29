@@ -37,7 +37,6 @@ class MatchRoute extends AddRoutes
 	public function setup()
 	{
 		parent::setup();
-//		$this->matchRoute(self::$url);
 	}
 
 	/**

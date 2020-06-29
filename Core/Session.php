@@ -53,7 +53,7 @@ class Session
 
 	protected function addSessionVariable( $key, $value )
 	{
-		if ( $this->exists() !== 2 || session_id() !== $_COOKIE[ 'PHPSESSID' ] )
+		if ( $this->exists() !== 2 && session_id() !== $_COOKIE[ 'PHPSESSID' ] )
 		{
 			return;
 		}

@@ -51,6 +51,8 @@ class CharacterDevelopmentPageBuilder extends PageBuilder
 
 	protected function characterCreationForm()
 	{
+		// todo: I need to check if there is already something in the session storage.
+
 		$html = new HtmlElementCreator();
 		$race = new RaceChooser();
 //		$class = new ClassChooser();
