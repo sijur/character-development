@@ -13,6 +13,11 @@ class Home extends Controller implements PageInterface
 		return 'Home';
 	}
 
+	public function displayHeaderInformation()
+    {
+        return false;
+    }
+
 	public function displayHeader()
 	{
 		return true;

@@ -7,7 +7,7 @@ use App\Models\Navigation;
 $session = new Session();
 $session->setup( 'start' );
 
-
+if( isset( $headerInfo ) && ( $headerInfo ) ) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,4 +38,4 @@ $session->setup( 'start' );
 			?>
 		</div>
 	</div>
-<?php } ?>
+<?php } } ?>

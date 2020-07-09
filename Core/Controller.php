@@ -75,11 +75,14 @@ class Controller
 
 	public function displayHeader() {}
 
+	public function displayHeaderInformation() {}
+
 	protected function header()
 	{
 		View::render('Header/header.php', [
 			'title' => $this->getTitle(),
-			'header' => $this->displayHeader()
+			'header' => $this->displayHeader(),
+            'headerInfo' => $this->displayHeaderInformation() ?? true
 		]);
 	}
 
