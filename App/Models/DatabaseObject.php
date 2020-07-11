@@ -32,20 +32,57 @@ class DatabaseObject
         return $dbInfo->setup();
     }
 
+    protected function getDSN()
+    {
+        return "mysql:host=$this->host;dbname=$this->dbName;charset=$this->charset";
+    }
+
     public function verifyLogin( $user, $pass )
     {
-        $dsn = "mysql:host=$this->host;dbname=$this->dbName;charset=$this->charset";
+        $dsn = $this->getDSN();
 
         $options = [];
 
         try {
             $pdo = new PDO( $dsn, $this->user, $this->pass, $options );
-        } catch (\PDOException $e) {
-            throw new \PDOException($e->getMessage(), (int)$e->getCode());
+        } catch ( \PDOException $e ) {
+            throw new \PDOException( $e->getMessage(), ( int )$e->getCode() );
         }
 
         $stmt = $pdo->prepare( "SELECT * FROM users WHERE user_name = ? AND password = ?" );
         $stmt->execute( [ $user, $pass ] );
+        return $stmt->fetch( PDO::FETCH_ASSOC );
+    }
+
+    public function getUserInfo( $id )
+    {
+        $dsn = $this->getDSN();
+
+        $options = [];
+
+        try {
+            $pdo = new PDO( $dsn, $this->user, $this->pass, $options );
+        } catch ( \PDOException $e ) {
+            throw new \PDOException( $e->getMessage(), ( int )$e->getCode() );
+        }
+
+        $stmt = $pdo->prepare(
+            "SELECT 
+                            user_name AS 'user',
+                            first_name,
+                            concat(first_name, ' ', last_name) AS 'full_name',
+                            bio,
+                            email_address,
+                            is_dm,
+                            dm_id,
+                            is_player,
+                            player_id
+                        FROM
+                            users
+                        WHERE
+                            id = ?"
+                            );
+        $stmt->execute( [ $id ] );
         return $stmt->fetch( PDO::FETCH_ASSOC );
     }
 }

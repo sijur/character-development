@@ -9,13 +9,12 @@ $verify->verify();
 
 $accountInfo = new AccountInformation($_SESSION['userID']);
 $userInfo = $accountInfo->setup();
-$row = mysqli_fetch_array($userInfo);
 
-$firstName = $row['first_name'];
-$fullName = $row['full_name'];
+$firstName = $userInfo['first_name'];
+$fullName = $userInfo['full_name'];
 
 $html = new AccountPageBuilder();
-$html->mainContainerAccountCreation( $row );
+$html->mainContainerAccountCreation( $userInfo );
 
 ?>
 
