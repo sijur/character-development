@@ -15,7 +15,7 @@ class DatabaseSettings
 	{
 	}
 
-	public static function setup($localhost = 'localhost')
+	public static function setup($localhost = '127.0.0.1')
 	{
 		return self::settings($localhost);
 	}
@@ -38,7 +38,7 @@ class DatabaseSettings
 					'host' => $host,
 					'dbUser' => 'root',
 					'dbName' => 'character_db',
-					'password' => ''
+					'password' => 'St3v3n@)!!'
 				];
 				break;
 		}

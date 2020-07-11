@@ -38,7 +38,7 @@ class LoginPageBuilder extends PageBuilder
 	{
 		$html = new HtmlElementCreator();
 		$content = $this->loginContainerFormContent();
-		$msg = $html->basicForm('loginFormContainer', 'loginForm', '/login/verify', $content);
+		$msg = $html->basicForm('loginFormContainer', 'loginForm', '/verify/index', $content);
 		return $msg;
 	}
 

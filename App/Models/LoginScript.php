@@ -38,19 +38,25 @@ class LoginScript
 
 	protected function getUserInformation($user, $pass)
 	{
-		$dbInfo = new DatabaseSettings();
-		$db = $dbInfo->setup();
-		$conn = mysqli_connect($db->host, $db->dbUser, $db->password, $db->dbName, '3306');
+	    $pdo = new DatabaseObject();
 
-		$user = stripslashes($user);
-		$pass = stripslashes($pass);
+        $user = stripslashes($user);
+        $pass = stripslashes($pass);
 
-		$user = mysqli_real_escape_string($conn, $user);
-		$pass = mysqli_real_escape_string($conn, $pass);
+        return $pdo->verifyLogin( $user, $pass );
 
-		$sql = "SELECT * FROM users WHERE user_name = '$user' AND password = '$pass'";
+//      $dbInfo = new DatabaseSettings();
+//		$db = $dbInfo->setup();
+//		$conn = mysqli_connect($db->host, $db->dbUser, $db->password, $db->dbName, '3306');
 
-		return mysqli_query($conn, $sql);
+
+
+//		$user = mysqli_real_escape_string($conn, $user);
+//		$pass = mysqli_real_escape_string($conn, $pass);
+//
+//		$sql = "SELECT * FROM users WHERE user_name = '$user' AND password = '$pass'";
+//
+//		return mysqli_query($conn, $sql);
 	}
 
 	protected static function render($msg)

@@ -28,7 +28,7 @@ class Navigation
 			],
 			[
 				'name' => 'Log out',
-				'route' => '/login/log-out'
+				'route' => '/logout/index'
 			]
 		];
 	}

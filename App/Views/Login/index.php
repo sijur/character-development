@@ -1,8 +1,9 @@
 <?php
-if (session_status() == PHP_SESSION_NONE)
-{
-	session_start();
-}
+
+use Core\Session;
+
+$session = new Session();
+$session->setup( 'start' );
 
 use App\Models\PageBuilder\LoginPageBuilder;
 

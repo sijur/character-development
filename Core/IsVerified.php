@@ -13,17 +13,15 @@ class IsVerified
 {
 	public function __construct()
 	{
-		if (session_status() == 'PHP_SESSION_NONE')
-		{
-			session_start();
-		}
+		$session = new Session();
+		$session->setup( 'start' );
 	}
 
 	public function setup() {}
 
 	public function verify($page = 'home')
 	{
-		$loginError = ($this->loggedIn() || isset($_SESSION['userName']))? false : true;
+		$loginError = $this->getLoginError();
 		$this->setSessionError($loginError);
 		if ($loginError == true)
 		{
@@ -35,6 +33,11 @@ class IsVerified
 		}
 
 	}
+
+    protected function getLoginError()
+    {
+        return ($this->loggedIn() || isset($_SESSION['userName']))? false : true;
+    }
 
 	protected function loggedIn()
 	{
