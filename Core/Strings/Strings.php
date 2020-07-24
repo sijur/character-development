@@ -46,6 +46,36 @@ class Strings
 		return lcfirst(self::convertToPascalCase($string));
 	}
 
+    /**
+     * So mainly here, we're taking everything in the url
+     * that is a query string and making it something that
+     * we can work with.
+     * Since everything after the .com is a query string,
+     * this is a pretty important function.
+     *
+     * @param $url
+     *
+     * @return string
+     */
+    public static function removeQueryStringVariables($url)
+    {
+        if ($url !== '')
+        {
+            $parts = explode('&', $url, 2);
+
+            if (strpos($parts[0], '=') === false)
+            {
+                $url = $parts[0];
+            }
+            else
+            {
+                $url = '';
+            }
+        }
+
+        return $url;
+    }
+
 	public static function render($msg)
 	{
 		echo $msg;

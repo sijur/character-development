@@ -38,7 +38,7 @@ class DatabaseSettings
 					'host' => $host,
 					'dbUser' => 'root',
 					'dbName' => 'character_db',
-					'password' => ''
+					'password' => 'St3v3n@)!!'
 				];
 				break;
 		}

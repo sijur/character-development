@@ -29,13 +29,13 @@ class Dispatch extends MatchRoute
 		parent::__construct($url);
 	}
 
-	/**
-	 * We're just setting things up here.
-	 * The setup function that is in the parent is the
-	 * MatchRoute class's setup function.
-	 *
-	 * @throws \Exception
-	 */
+    /**
+     * We're just setting things up here.
+     * The setup function that is in the parent is the
+     * MatchRoute class's setup function.
+     *
+     * @throws \Exception
+     */
 	public function setup()
 	{
 		parent::setup();
@@ -53,10 +53,11 @@ class Dispatch extends MatchRoute
 	 */
 	private function dispatch($url)
 	{
+        $strings = new Strings();
 		/*
 		 * This is us taking the url and removing the query string.
 		 */
-		$url = self::removeQueryStringVariables($url);
+		$url = $strings::removeQueryStringVariables($url);
 
 		/*
 		 * Okay, the matchRoute function is in the MatchRoute class.  You
@@ -74,15 +75,13 @@ class Dispatch extends MatchRoute
 			 * gotta instantiate the Strings class so that we can work with
 			 * the strings.
 			 */
-			$strings = new Strings();
-			$controller = $strings::convertToPascalCase($controller);
 
+			$controller = $strings::convertToPascalCase($controller);
 
 			/*
 			 * Since our autoloader requires the namespace, we have to add that in here.
 			 */
 			$controller = $this->getNamespace() . $controller;
-
 
 			/*
 			 * Okay, so if the class exists we need to do stuff with it.
@@ -90,7 +89,6 @@ class Dispatch extends MatchRoute
 			 */
 			if (class_exists($controller))
 			{
-
 				/*
 				 * Okay, remember that controller up there that we got,
 				 * well we also need the action.  The action is the function
@@ -105,7 +103,7 @@ class Dispatch extends MatchRoute
 				 * then we're going to convert it to something that we can use.
 				 */
 				$action = (isset($this->params['action'])) ? $this->params['action'] : 'index';
-				$action = $strings->convertToCamelCase($action);
+				$action = $strings::convertToCamelCase($action);
 
 				if (preg_match('/action$/i', $action) === 0)
 				{
@@ -125,54 +123,5 @@ class Dispatch extends MatchRoute
 		{
 			throw new \Exception('No route matched.', 404);
 		}
-	}
-
-	/**
-	 * So mainly here, we're taking everything in the url
-	 * that is a query string and making it something that
-	 * we can work with.
-	 * Since everything after the .com is a query string,
-	 * this is a pretty important function.
-	 *
-	 * @param $url
-	 *
-	 * @return string
-	 */
-	private static function removeQueryStringVariables($url)
-	{
-		if ($url !== '')
-		{
-			$parts = explode('&', $url, 2);
-
-			if (strpos($parts[0], '=') === false)
-			{
-				$url = $parts[0];
-			}
-			else
-			{
-				$url = '';
-			}
-		}
-
-		return $url;
-	}
-
-	/**
-	 * Since we know that the namespace is going to follow
-	 * the folder structure, we have to add that part into
-	 * the namespace.
-	 *
-	 * @return string
-	 */
-	private function getNamespace()
-	{
-		$namespace = 'App\Controllers\\';
-
-		if (array_key_exists('namespace', $this->params))
-		{
-			$namespace .= $this->params['namespace'] . '\\';
-		}
-
-		return $namespace;
 	}
 }

@@ -19,6 +19,6 @@ class Account extends Controller implements PageInterface
 
 	public function indexAction()
 	{
-		View::render('Account/index.php');
+		View::render('Account/index');
 	}
 }

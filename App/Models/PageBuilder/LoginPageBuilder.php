@@ -6,7 +6,6 @@ namespace App\Models\PageBuilder;
 use App\Models\HtmlElementCreator;
 use App\Models\PageBuilder;
 
-
 class LoginPageBuilder extends PageBuilder
 {
 	public function __construct()

@@ -11,7 +11,6 @@ $html = new LoginPageBuilder();
 
 if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true)
 {
-
 	header('location: /account');
 }
 else

@@ -21,6 +21,6 @@ class CharacterDevelopment extends Controller implements PageInterface
 
 	public function indexAction()
 	{
-		View::render('CharacterDevelopment/index.php');
+		View::render('CharacterDevelopment/index');
 	}
 }

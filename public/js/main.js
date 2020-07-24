@@ -102,19 +102,6 @@ var main =
 
 	serverSideStoreSessionValue: function( values )
 	{
-		// _s.ajax({
-		// 	type: 'POST',
-		// 	url: '/login/verify',
-		// 	data: {
-		// 		username: $('#userName').val(),
-		// 		password: $('#password').val()
-		// 	},
-		// 	callBack: function( result )
-		// 	{
-		// 		console.log(result);
-		// 	}
-		// });
-
 		var url = '/session/storage&ajax=true';
 		_s.ajax({
 			type: 'POST',

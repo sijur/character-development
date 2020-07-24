@@ -79,7 +79,7 @@ class Controller
 
 	protected function header()
 	{
-		View::render('Header/header.php', [
+		View::render('Header/header', [
 			'title' => $this->getTitle(),
 			'header' => $this->displayHeader(),
             'headerInfo' => $this->displayHeaderInformation() ?? true
@@ -88,7 +88,7 @@ class Controller
 
 	protected function footer()
 	{
-		View::render('Footer/footer.php');
+		View::render('Footer/footer');
 	}
 
 	protected function before() {}

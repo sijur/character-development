@@ -25,6 +25,6 @@ class Home extends Controller implements PageInterface
 
 	public function indexAction()
 	{
-		View::render('Home/index.php');
+		View::render('Home/index');
 	}
 }

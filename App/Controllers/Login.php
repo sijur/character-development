@@ -11,6 +11,7 @@ use Core\Session;
 
 class Login extends Controller implements PageInterface
 {
+
     public function getTitle()
 	{
 		return 'Login';
@@ -21,8 +22,21 @@ class Login extends Controller implements PageInterface
 		return false;
 	}
 
-	public function indexAction()
+	public function displayHeaderInformation()
+    {
+        $session = new Session();
+        $session->setup( 'start' );
+
+        if ( isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true )
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function indexAction()
 	{
-		View::render( 'Login/index.php' );
+		View::render( 'Login/index' );
 	}
 }

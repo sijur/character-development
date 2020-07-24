@@ -12,6 +12,7 @@ require_once '../Core/inc/autoload.php';
 use Core\Log;
 use App\Config;
 use Core\Router\Dispatch;
+use Core\Router\ApiController;
 
 $debug = isset( $_REQUEST[ 'debug' ] );
 $ajax = isset( $_REQUEST[ 'ajax' ] );
@@ -24,19 +25,24 @@ set_exception_handler( 'Core\Error::exceptionHandler' );
 Log::setLogLevelFilter( Config::LOG_LEVEL );
 Log::debug( "Attempting to route page \"" . $_SERVER[ 'QUERY_STRING' ] . "\"" );
 
+
+
 if ( !$ajax )
 {
 	$router = new Dispatch( $queryString );
-	$router->setup();
+    try {
+        $router->setup();
+    } catch (\Exception $e) {
+        echo '<pre>';
+        var_dump( print_r( $e, true ) );
+        echo '</pre>';
+    }
 }
 else
 {
 	$ajaxString = '&ajax=true';
 	$newQueryString = str_ireplace( $ajaxString, '', $queryString );
 
-	echo '<pre>';
-	var_dump(print_r($newQueryString, true));
-	echo '</pre>';
-
-
+	$router = new ApiController( $newQueryString );
+	$router->setup();
 }

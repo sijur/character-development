@@ -29,3 +29,8 @@ RewriteCond %{REQUEST_FILENAME} !-l
 # that will make it appear better, but the site
 # relies on the query string in the url.
 RewriteRule ^(.+)$ index.php?$1 [QSA,L]
+
+# Redirect HTTPS to HTTP
+RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-Proto} =https
+RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
